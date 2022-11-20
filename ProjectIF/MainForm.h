@@ -34,17 +34,15 @@ namespace ProjectIF {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::ImageList^ imageList1;
 	protected:
 	private: System::Windows::Forms::ImageList^ imageList2;
+	private: System::Windows::Forms::Button^ button1;
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
-
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -54,27 +52,26 @@ namespace ProjectIF {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
-			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
+			
 			this->imageList2 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// imageList1
+			// button1
 			// 
-			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
-			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			this->imageList1->Images->SetKeyName(0, L"Reviewstaurante.png");
-			// 
-			// imageList2
-			// 
-			this->imageList2->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
-			this->imageList2->ImageSize = System::Drawing::Size(16, 16);
-			this->imageList2->TransparentColor = System::Drawing::Color::Transparent;
+			this->button1->Location = System::Drawing::Point(37, 116);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(513, 617);
+			this->Controls->Add(this->button1);
 			this->Name = L"MainForm";
 			this->Text = L"MainForm";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);

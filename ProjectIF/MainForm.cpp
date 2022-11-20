@@ -6,7 +6,7 @@ void main(array<String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	FirstCppProject::MainForm form;
+	ProjectIF::MainForm form;
 	Application::Run(% form);
 }
 
