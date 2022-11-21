@@ -54,6 +54,12 @@ namespace ProjectIF {
 	private: System::Windows::Forms::TabPage^ tabPage1;
 	private: System::Windows::Forms::TabPage^ tabPage2;
 	private: System::Windows::Forms::Label^ lblUserSign;
+	private: System::Windows::Forms::Button^ btnSignUpSign;
+	private: System::Windows::Forms::TextBox^ txtPasswordConfirm;
+	private: System::Windows::Forms::Label^ lblPasswordConfirm;
+	private: System::Windows::Forms::TextBox^ txtPasswordSign;
+	private: System::Windows::Forms::Label^ lblPasswordSign;
+	private: System::Windows::Forms::TextBox^ txtUserSign;
 
 
 
@@ -91,6 +97,12 @@ namespace ProjectIF {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->lblUserSign = (gcnew System::Windows::Forms::Label());
+			this->txtUserSign = (gcnew System::Windows::Forms::TextBox());
+			this->txtPasswordSign = (gcnew System::Windows::Forms::TextBox());
+			this->lblPasswordSign = (gcnew System::Windows::Forms::Label());
+			this->txtPasswordConfirm = (gcnew System::Windows::Forms::TextBox());
+			this->lblPasswordConfirm = (gcnew System::Windows::Forms::Label());
+			this->btnSignUpSign = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
 			this->table->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
@@ -258,6 +270,12 @@ namespace ProjectIF {
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->tabPage2->Controls->Add(this->btnSignUpSign);
+			this->tabPage2->Controls->Add(this->txtPasswordConfirm);
+			this->tabPage2->Controls->Add(this->lblPasswordConfirm);
+			this->tabPage2->Controls->Add(this->txtPasswordSign);
+			this->tabPage2->Controls->Add(this->lblPasswordSign);
+			this->tabPage2->Controls->Add(this->txtUserSign);
 			this->tabPage2->Controls->Add(this->lblUserSign);
 			this->tabPage2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
@@ -271,12 +289,72 @@ namespace ProjectIF {
 			// lblUserSign
 			// 
 			this->lblUserSign->AutoSize = true;
-			this->lblUserSign->Location = System::Drawing::Point(57, 37);
+			this->lblUserSign->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblUserSign->Location = System::Drawing::Point(6, 3);
 			this->lblUserSign->Name = L"lblUserSign";
-			this->lblUserSign->Size = System::Drawing::Size(29, 13);
+			this->lblUserSign->Size = System::Drawing::Size(72, 31);
 			this->lblUserSign->TabIndex = 0;
 			this->lblUserSign->Text = L"User";
 			this->lblUserSign->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// txtUserSign
+			// 
+			this->txtUserSign->Location = System::Drawing::Point(12, 38);
+			this->txtUserSign->Name = L"txtUserSign";
+			this->txtUserSign->Size = System::Drawing::Size(164, 20);
+			this->txtUserSign->TabIndex = 1;
+			// 
+			// txtPasswordSign
+			// 
+			this->txtPasswordSign->Location = System::Drawing::Point(12, 110);
+			this->txtPasswordSign->Name = L"txtPasswordSign";
+			this->txtPasswordSign->Size = System::Drawing::Size(164, 20);
+			this->txtPasswordSign->TabIndex = 3;
+			// 
+			// lblPasswordSign
+			// 
+			this->lblPasswordSign->AutoSize = true;
+			this->lblPasswordSign->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lblPasswordSign->Location = System::Drawing::Point(6, 75);
+			this->lblPasswordSign->Name = L"lblPasswordSign";
+			this->lblPasswordSign->Size = System::Drawing::Size(134, 31);
+			this->lblPasswordSign->TabIndex = 2;
+			this->lblPasswordSign->Text = L"Password";
+			this->lblPasswordSign->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// txtPasswordConfirm
+			// 
+			this->txtPasswordConfirm->Location = System::Drawing::Point(12, 193);
+			this->txtPasswordConfirm->Name = L"txtPasswordConfirm";
+			this->txtPasswordConfirm->Size = System::Drawing::Size(164, 20);
+			this->txtPasswordConfirm->TabIndex = 5;
+			// 
+			// lblPasswordConfirm
+			// 
+			this->lblPasswordConfirm->AutoSize = true;
+			this->lblPasswordConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lblPasswordConfirm->Location = System::Drawing::Point(6, 158);
+			this->lblPasswordConfirm->Name = L"lblPasswordConfirm";
+			this->lblPasswordConfirm->Size = System::Drawing::Size(236, 31);
+			this->lblPasswordConfirm->TabIndex = 4;
+			this->lblPasswordConfirm->Text = L"Confirm Password";
+			this->lblPasswordConfirm->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// btnSignUpSign
+			// 
+			this->btnSignUpSign->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSignUpSign->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
+				static_cast<System::Int32>(static_cast<System::Byte>(90)));
+			this->btnSignUpSign->Location = System::Drawing::Point(12, 270);
+			this->btnSignUpSign->Name = L"btnSignUpSign";
+			this->btnSignUpSign->Size = System::Drawing::Size(243, 45);
+			this->btnSignUpSign->TabIndex = 6;
+			this->btnSignUpSign->Text = L"Sign Up";
+			this->btnSignUpSign->UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
