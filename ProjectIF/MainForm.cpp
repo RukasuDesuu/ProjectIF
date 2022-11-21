@@ -1,6 +1,6 @@
 #include "MainForm.h"
 
-using namespace System;
+/*using namespace System;
 using namespace System::Windows::Forms;
 void main(array<String^>^ args)
 {
@@ -8,5 +8,5 @@ void main(array<String^>^ args)
 	Application::SetCompatibleTextRenderingDefault(false);
 	ProjectIF::MainForm form;
 	Application::Run(% form);
-}
+}*/
 

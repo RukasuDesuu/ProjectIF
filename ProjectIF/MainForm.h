@@ -1,4 +1,5 @@
 #pragma once
+#include "User.h"
 
 namespace ProjectIF {
 
@@ -8,6 +9,7 @@ namespace ProjectIF {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
 	/// <summary>
 	/// Summary for MainForm
@@ -304,15 +306,49 @@ namespace ProjectIF {
 		}
 #pragma endregion
 	
-
+	public: User^ user = nullptr;
 
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ user = this->tbUser->Text;
+		String^ username = this->tbUser->Text;
 		String^ password = this->tbPW->Text;
+		if (username->Length == 0 || password->Length == 0) {
+			MessageBox::Show("Please enter username and password", "username or Password Empty", MessageBoxButtons::OK);
+		}
+
+		try {
+			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=myrestaurant;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+			String^ sqlQuery = "SELECT * FROM users WHERE username=@username AND password=@pwd;";
+			SqlCommand command(sqlQuery, % sqlConn);
+			command.Parameters->AddWithValue("@username", username);
+			command.Parameters->AddWithValue("@pwd", password);
+
+			SqlDataReader^ reader = command.ExecuteReader();
+			if (reader->Read()) {
+				user = gcnew User;
+				user->id = reader->GetInt32(0);
+				user->name = reader->GetString(1);
+				user->username = reader->GetString(2);
+				user->password = reader->GetString(3);
+
+				this->Close();
+			}
+			else {
+				MessageBox::Show("Username or password is incorrect",
+					"Username or Password Error", MessageBoxButtons::OK);
+			}
+		}
+		catch (Exception^ e) {
+			MessageBox::Show("Failed to connect to database",
+				"Database Connection Error", MessageBoxButtons::OK);
+		}
 
 	}
 	private: System::Void btnSignUp_Click(System::Object^ sender, System::EventArgs^ e) {
 		 this -> tcLogin -> SelectedIndex=1;
+
 	}
 
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
