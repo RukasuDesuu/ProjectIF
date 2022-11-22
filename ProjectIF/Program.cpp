@@ -1,4 +1,4 @@
-#include "MainForm.h"
+#include "LoginForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -6,10 +6,10 @@ void main(array<String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	ProjectIF::MainForm mainForm;
+	ProjectIF::LoginForm loginForm;
 
-	mainForm.ShowDialog();
-	User^ user = mainForm.user;
+	loginForm.ShowDialog();
+	User^ user = loginForm.user;
 
 	if (user != nullptr){
 		MessageBox::Show("Successfull Authentication of " + user->username, "Program.cpp", MessageBoxButtons::OK);

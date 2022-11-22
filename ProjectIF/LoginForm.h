@@ -12,12 +12,12 @@ namespace ProjectIF {
 	using namespace System::Data::SqlClient;
 
 	/// <summary>
-	/// Summary for MainForm
+	/// Summary for LoginForm
 	/// </summary>
-	public ref class MainForm : public System::Windows::Forms::Form
+	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
-		MainForm(void)
+		LoginForm(void)
 		{
 			InitializeComponent();
 			//
@@ -29,7 +29,7 @@ namespace ProjectIF {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~MainForm()
+		~LoginForm()
 		{
 			if (components)
 			{
@@ -56,6 +56,24 @@ namespace ProjectIF {
 	private: System::Windows::Forms::TabPage^ tabPage1;
 	private: System::Windows::Forms::TabPage^ tabPage2;
 	private: System::Windows::Forms::Label^ lblUserSign;
+	private: System::Windows::Forms::TextBox^ tbPasswordSign2;
+
+	private: System::Windows::Forms::Label^ lblPasswordSign2;
+	private: System::Windows::Forms::TextBox^ tbPasswordSign1;
+
+	private: System::Windows::Forms::Label^ lblPasswordSign1;
+	private: System::Windows::Forms::TextBox^ tbNameSign;
+
+
+	private: System::Windows::Forms::Label^ lblName;
+	private: System::Windows::Forms::TextBox^ tbUsernameSign;
+	private: System::Windows::Forms::Panel^ panelDivider;
+	private: System::Windows::Forms::Label^ lblSignUpTitle;
+	private: System::Windows::Forms::CheckBox^ chbIsRestaurant;
+	private: System::Windows::Forms::Label^ lblTerms;
+	private: System::Windows::Forms::Button^ btnSignUpConfirm;
+	private: System::Windows::Forms::Label^ label1;
+
 
 
 
@@ -78,7 +96,7 @@ namespace ProjectIF {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->logo = (gcnew System::Windows::Forms::PictureBox());
 			this->table = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tbPW = (gcnew System::Windows::Forms::TextBox());
@@ -92,6 +110,19 @@ namespace ProjectIF {
 			this->tcLogin = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->btnSignUpConfirm = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lblTerms = (gcnew System::Windows::Forms::Label());
+			this->chbIsRestaurant = (gcnew System::Windows::Forms::CheckBox());
+			this->tbPasswordSign2 = (gcnew System::Windows::Forms::TextBox());
+			this->lblPasswordSign2 = (gcnew System::Windows::Forms::Label());
+			this->tbPasswordSign1 = (gcnew System::Windows::Forms::TextBox());
+			this->lblPasswordSign1 = (gcnew System::Windows::Forms::Label());
+			this->tbNameSign = (gcnew System::Windows::Forms::TextBox());
+			this->lblName = (gcnew System::Windows::Forms::Label());
+			this->tbUsernameSign = (gcnew System::Windows::Forms::TextBox());
+			this->panelDivider = (gcnew System::Windows::Forms::Panel());
+			this->lblSignUpTitle = (gcnew System::Windows::Forms::Label());
 			this->lblUserSign = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
 			this->table->SuspendLayout();
@@ -120,7 +151,7 @@ namespace ProjectIF {
 			this->table->ColumnCount = 3;
 			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 65.30278F)));
 			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 34.69722F)));
-			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 369)));
+			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 379)));
 			this->table->Controls->Add(this->tbPW, 1, 3);
 			this->table->Controls->Add(this->tableLayoutPanel1, 1, 4);
 			this->table->Controls->Add(this->tbUser, 1, 1);
@@ -140,10 +171,11 @@ namespace ProjectIF {
 			// 
 			// tbPW
 			// 
-			this->tbPW->Location = System::Drawing::Point(409, 149);
+			this->tbPW->Location = System::Drawing::Point(403, 149);
 			this->tbPW->Name = L"tbPW";
 			this->tbPW->Size = System::Drawing::Size(200, 20);
 			this->tbPW->TabIndex = 1;
+			this->tbPW->UseSystemPasswordChar = true;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -154,7 +186,7 @@ namespace ProjectIF {
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->btnLogin, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->btnSignUp, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(409, 203);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(403, 203);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -169,7 +201,7 @@ namespace ProjectIF {
 			this->btnLogin->TabIndex = 0;
 			this->btnLogin->Text = L"Login";
 			this->btnLogin->UseVisualStyleBackColor = true;
-			this->btnLogin->Click += gcnew System::EventHandler(this, &MainForm::btnLogin_Click);
+			this->btnLogin->Click += gcnew System::EventHandler(this, &LoginForm::btnLogin_Click);
 			// 
 			// btnSignUp
 			// 
@@ -179,11 +211,11 @@ namespace ProjectIF {
 			this->btnSignUp->TabIndex = 1;
 			this->btnSignUp->Text = L"Sign Up";
 			this->btnSignUp->UseVisualStyleBackColor = true;
-			this->btnSignUp->Click += gcnew System::EventHandler(this, &MainForm::btnSignUp_Click);
+			this->btnSignUp->Click += gcnew System::EventHandler(this, &LoginForm::btnSignUp_Click);
 			// 
 			// tbUser
 			// 
-			this->tbUser->Location = System::Drawing::Point(409, 54);
+			this->tbUser->Location = System::Drawing::Point(403, 54);
 			this->tbUser->Name = L"tbUser";
 			this->tbUser->Size = System::Drawing::Size(197, 20);
 			this->tbUser->TabIndex = 0;
@@ -195,7 +227,7 @@ namespace ProjectIF {
 				static_cast<System::Byte>(0)));
 			this->lblPw->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->lblPw->Location = System::Drawing::Point(409, 100);
+			this->lblPw->Location = System::Drawing::Point(403, 100);
 			this->lblPw->Name = L"lblPw";
 			this->lblPw->Size = System::Drawing::Size(134, 31);
 			this->lblPw->TabIndex = 4;
@@ -208,7 +240,7 @@ namespace ProjectIF {
 				static_cast<System::Byte>(0)));
 			this->lblUser->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->lblUser->Location = System::Drawing::Point(409, 0);
+			this->lblUser->Location = System::Drawing::Point(403, 0);
 			this->lblUser->Name = L"lblUser";
 			this->lblUser->Size = System::Drawing::Size(72, 31);
 			this->lblUser->TabIndex = 3;
@@ -219,12 +251,13 @@ namespace ProjectIF {
 			this->chbShowPassword->AutoSize = true;
 			this->chbShowPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->chbShowPassword->Location = System::Drawing::Point(625, 149);
+			this->chbShowPassword->Location = System::Drawing::Point(615, 149);
 			this->chbShowPassword->Name = L"chbShowPassword";
 			this->chbShowPassword->Size = System::Drawing::Size(102, 17);
 			this->chbShowPassword->TabIndex = 5;
 			this->chbShowPassword->Text = L"Show Password";
 			this->chbShowPassword->UseVisualStyleBackColor = true;
+			this->chbShowPassword->CheckedChanged += gcnew System::EventHandler(this, &LoginForm::chbShowPassword_CheckedChanged);
 			// 
 			// tcLogin
 			// 
@@ -260,6 +293,19 @@ namespace ProjectIF {
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->tabPage2->Controls->Add(this->btnSignUpConfirm);
+			this->tabPage2->Controls->Add(this->label1);
+			this->tabPage2->Controls->Add(this->lblTerms);
+			this->tabPage2->Controls->Add(this->chbIsRestaurant);
+			this->tabPage2->Controls->Add(this->tbPasswordSign2);
+			this->tabPage2->Controls->Add(this->lblPasswordSign2);
+			this->tabPage2->Controls->Add(this->tbPasswordSign1);
+			this->tabPage2->Controls->Add(this->lblPasswordSign1);
+			this->tabPage2->Controls->Add(this->tbNameSign);
+			this->tabPage2->Controls->Add(this->lblName);
+			this->tabPage2->Controls->Add(this->tbUsernameSign);
+			this->tabPage2->Controls->Add(this->panelDivider);
+			this->tabPage2->Controls->Add(this->lblSignUpTitle);
 			this->tabPage2->Controls->Add(this->lblUserSign);
 			this->tabPage2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
@@ -270,17 +316,153 @@ namespace ProjectIF {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			// 
+			// btnSignUpConfirm
+			// 
+			this->btnSignUpConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSignUpConfirm->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->btnSignUpConfirm->Location = System::Drawing::Point(22, 434);
+			this->btnSignUpConfirm->Name = L"btnSignUpConfirm";
+			this->btnSignUpConfirm->Size = System::Drawing::Size(244, 32);
+			this->btnSignUpConfirm->TabIndex = 13;
+			this->btnSignUpConfirm->Text = L"CONFIRM";
+			this->btnSignUpConfirm->UseVisualStyleBackColor = true;
+			this->btnSignUpConfirm->Click += gcnew System::EventHandler(this, &LoginForm::btnSignUpConfirm_Click);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(241, 418);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(133, 13);
+			this->label1->TabIndex = 12;
+			this->label1->Text = L"Terms and Conditions.";
+			// 
+			// lblTerms
+			// 
+			this->lblTerms->AutoSize = true;
+			this->lblTerms->Location = System::Drawing::Point(22, 418);
+			this->lblTerms->Name = L"lblTerms";
+			this->lblTerms->Size = System::Drawing::Size(222, 13);
+			this->lblTerms->TabIndex = 11;
+			this->lblTerms->Text = L"By clicking on confirm you are agreeing to our";
+			// 
+			// chbIsRestaurant
+			// 
+			this->chbIsRestaurant->AutoSize = true;
+			this->chbIsRestaurant->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->chbIsRestaurant->Location = System::Drawing::Point(22, 111);
+			this->chbIsRestaurant->Name = L"chbIsRestaurant";
+			this->chbIsRestaurant->Size = System::Drawing::Size(220, 29);
+			this->chbIsRestaurant->TabIndex = 10;
+			this->chbIsRestaurant->Text = L"Restaurant Account";
+			this->chbIsRestaurant->UseVisualStyleBackColor = true;
+			this->chbIsRestaurant->CheckedChanged += gcnew System::EventHandler(this, &LoginForm::chbIsRestaurant_CheckedChanged);
+			// 
+			// tbPasswordSign2
+			// 
+			this->tbPasswordSign2->Location = System::Drawing::Point(22, 391);
+			this->tbPasswordSign2->Name = L"tbPasswordSign2";
+			this->tbPasswordSign2->Size = System::Drawing::Size(221, 20);
+			this->tbPasswordSign2->TabIndex = 9;
+			this->tbPasswordSign2->UseSystemPasswordChar = true;
+			// 
+			// lblPasswordSign2
+			// 
+			this->lblPasswordSign2->AutoSize = true;
+			this->lblPasswordSign2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lblPasswordSign2->Location = System::Drawing::Point(16, 356);
+			this->lblPasswordSign2->Name = L"lblPasswordSign2";
+			this->lblPasswordSign2->Size = System::Drawing::Size(236, 31);
+			this->lblPasswordSign2->TabIndex = 8;
+			this->lblPasswordSign2->Text = L"Confirm Password";
+			this->lblPasswordSign2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// tbPasswordSign1
+			// 
+			this->tbPasswordSign1->Location = System::Drawing::Point(22, 324);
+			this->tbPasswordSign1->Name = L"tbPasswordSign1";
+			this->tbPasswordSign1->Size = System::Drawing::Size(221, 20);
+			this->tbPasswordSign1->TabIndex = 7;
+			this->tbPasswordSign1->UseSystemPasswordChar = true;
+			// 
+			// lblPasswordSign1
+			// 
+			this->lblPasswordSign1->AutoSize = true;
+			this->lblPasswordSign1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lblPasswordSign1->Location = System::Drawing::Point(16, 289);
+			this->lblPasswordSign1->Name = L"lblPasswordSign1";
+			this->lblPasswordSign1->Size = System::Drawing::Size(134, 31);
+			this->lblPasswordSign1->TabIndex = 6;
+			this->lblPasswordSign1->Text = L"Password";
+			this->lblPasswordSign1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// tbNameSign
+			// 
+			this->tbNameSign->Location = System::Drawing::Point(22, 185);
+			this->tbNameSign->Name = L"tbNameSign";
+			this->tbNameSign->Size = System::Drawing::Size(394, 20);
+			this->tbNameSign->TabIndex = 5;
+			// 
+			// lblName
+			// 
+			this->lblName->AutoSize = true;
+			this->lblName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblName->Location = System::Drawing::Point(16, 150);
+			this->lblName->Name = L"lblName";
+			this->lblName->Size = System::Drawing::Size(137, 31);
+			this->lblName->TabIndex = 4;
+			this->lblName->Text = L"Full Name";
+			this->lblName->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// tbUsernameSign
+			// 
+			this->tbUsernameSign->Location = System::Drawing::Point(22, 255);
+			this->tbUsernameSign->Name = L"tbUsernameSign";
+			this->tbUsernameSign->Size = System::Drawing::Size(221, 20);
+			this->tbUsernameSign->TabIndex = 3;
+			// 
+			// panelDivider
+			// 
+			this->panelDivider->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->panelDivider->Location = System::Drawing::Point(9, 84);
+			this->panelDivider->Name = L"panelDivider";
+			this->panelDivider->Size = System::Drawing::Size(365, 1);
+			this->panelDivider->TabIndex = 2;
+			// 
+			// lblSignUpTitle
+			// 
+			this->lblSignUpTitle->AutoSize = true;
+			this->lblSignUpTitle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblSignUpTitle->Location = System::Drawing::Point(9, 8);
+			this->lblSignUpTitle->Name = L"lblSignUpTitle";
+			this->lblSignUpTitle->Size = System::Drawing::Size(260, 73);
+			this->lblSignUpTitle->TabIndex = 1;
+			this->lblSignUpTitle->Text = L"Sign Up";
+			// 
 			// lblUserSign
 			// 
 			this->lblUserSign->AutoSize = true;
-			this->lblUserSign->Location = System::Drawing::Point(57, 37);
+			this->lblUserSign->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblUserSign->Location = System::Drawing::Point(16, 220);
 			this->lblUserSign->Name = L"lblUserSign";
-			this->lblUserSign->Size = System::Drawing::Size(29, 13);
+			this->lblUserSign->Size = System::Drawing::Size(139, 31);
 			this->lblUserSign->TabIndex = 0;
-			this->lblUserSign->Text = L"User";
+			this->lblUserSign->Text = L"Username";
 			this->lblUserSign->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// MainForm
+			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -289,10 +471,10 @@ namespace ProjectIF {
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->ClientSize = System::Drawing::Size(1036, 693);
 			this->Controls->Add(this->tcLogin);
-			this->Name = L"MainForm";
+			this->Name = L"LoginForm";
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
-			this->Text = L"MainForm";
-			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
+			this->Text = L"LoginForm";
+			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->EndInit();
 			this->table->ResumeLayout(false);
 			this->table->PerformLayout();
@@ -311,6 +493,7 @@ namespace ProjectIF {
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ username = this->tbUser->Text;
 		String^ password = this->tbPW->Text;
+
 		if (username->Length == 0 || password->Length == 0) {
 			MessageBox::Show("Please enter username and password", "username or Password Empty", MessageBoxButtons::OK);
 		}
@@ -351,8 +534,39 @@ namespace ProjectIF {
 
 	}
 
-	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void chbShowPassword_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->tbPW->UseSystemPasswordChar = !(this->chbShowPassword->Checked);
+		
+		/*if (this->chbShowPassword->Checked) {
+			this->tbPW->UseSystemPasswordChar = false;
+		}
+		else {
+			this->tbPW->UseSystemPasswordChar = true;
+		}*/
+	}
+
+	private: System::Void chbIsRestaurant_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (this->chbIsRestaurant->Checked) {
+			this->lblName->Text = "Restaurant Name";
+		}
+		else {
+			this->lblName->Text = "Full Name";
+		}
+	}
+
+	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->tcLogin->ItemSize = System::Drawing::Size(0, 1);
+	}
+
+	private: System::Void btnSignUpConfirm_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ username = this->tbUsernameSign->Text;
+		String^ password = this->tbPasswordSign1->Text;
+		String^ passwordConfirm = this->tbPasswordSign2->Text;
+		String^ name = this->tbNameSign->Text;
+		bool^ isRestaurant = chbIsRestaurant->Checked;
+
+
+
 	}
 };
 }
