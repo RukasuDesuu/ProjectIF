@@ -565,8 +565,28 @@ namespace ProjectIF {
 		String^ name = this->tbNameSign->Text;
 		bool^ isRestaurant = chbIsRestaurant->Checked;
 
+		if (username->Length == 0 || password->Length == 0 || name->Length == 0) {
+			MessageBox::Show("Please enter username, name and password", "username, name or Password Empty", MessageBoxButtons::OK);
+		}
 
+		if (String::Compare(passwordConfirm, password) != 0) {
+			MessageBox::Show("Password and Confirm Password do not match", "Password Error", MessageBoxButtons::OK);
+			return;
+		}
 
+		try {
+			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=myrestaurant;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+			
+			String^ sqlQuery = "INSERT INTO users " + "(name, username, password, isRestaurant)"
+			
+
+		}
+		catch (Exception^ e) {
+			MessageBox::Show("Failed to connect to database",
+				"Database Connection Error", MessageBoxButtons::OK);
+		}
 	}
 };
 }

@@ -15,6 +15,6 @@ void main(array<String^>^ args)
 		MessageBox::Show("Successfull Authentication of " + user->username, "Program.cpp", MessageBoxButtons::OK);
 	}
 	else {
-		MessageBox::Show("Authentication Canceld", "Program.cpp", MessageBoxButtons::OK);
+		MessageBox::Show("Authentication Canceled", "Program.cpp", MessageBoxButtons::OK);
 	}
 }
