@@ -12,7 +12,7 @@ void main(array<String^>^ args)
 	User^ user = loginForm.user;
 
 	if (user != nullptr){
-		MessageBox::Show("Successfull Authentication of " + user->username, "Program.cpp", MessageBoxButtons::OK);
+		MessageBox::Show("Successfull Authentication of " + user->name, "Program.cpp", MessageBoxButtons::OK);
 	}
 	else {
 		MessageBox::Show("Authentication Canceled", "Program.cpp", MessageBoxButtons::OK);

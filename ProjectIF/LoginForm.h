@@ -73,6 +73,7 @@ namespace ProjectIF {
 	private: System::Windows::Forms::Label^ lblTerms;
 	private: System::Windows::Forms::Button^ btnSignUpConfirm;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::LinkLabel^ lblLoginTab;
 
 
 
@@ -124,6 +125,7 @@ namespace ProjectIF {
 			this->panelDivider = (gcnew System::Windows::Forms::Panel());
 			this->lblSignUpTitle = (gcnew System::Windows::Forms::Label());
 			this->lblUserSign = (gcnew System::Windows::Forms::Label());
+			this->lblLoginTab = (gcnew System::Windows::Forms::LinkLabel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
 			this->table->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
@@ -151,7 +153,7 @@ namespace ProjectIF {
 			this->table->ColumnCount = 3;
 			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 65.30278F)));
 			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 34.69722F)));
-			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 379)));
+			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 380)));
 			this->table->Controls->Add(this->tbPW, 1, 3);
 			this->table->Controls->Add(this->tableLayoutPanel1, 1, 4);
 			this->table->Controls->Add(this->tbUser, 1, 1);
@@ -171,7 +173,7 @@ namespace ProjectIF {
 			// 
 			// tbPW
 			// 
-			this->tbPW->Location = System::Drawing::Point(403, 149);
+			this->tbPW->Location = System::Drawing::Point(402, 149);
 			this->tbPW->Name = L"tbPW";
 			this->tbPW->Size = System::Drawing::Size(200, 20);
 			this->tbPW->TabIndex = 1;
@@ -186,7 +188,7 @@ namespace ProjectIF {
 				50)));
 			this->tableLayoutPanel1->Controls->Add(this->btnLogin, 0, 0);
 			this->tableLayoutPanel1->Controls->Add(this->btnSignUp, 1, 0);
-			this->tableLayoutPanel1->Location = System::Drawing::Point(403, 203);
+			this->tableLayoutPanel1->Location = System::Drawing::Point(402, 203);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 1;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
@@ -215,7 +217,7 @@ namespace ProjectIF {
 			// 
 			// tbUser
 			// 
-			this->tbUser->Location = System::Drawing::Point(403, 54);
+			this->tbUser->Location = System::Drawing::Point(402, 54);
 			this->tbUser->Name = L"tbUser";
 			this->tbUser->Size = System::Drawing::Size(197, 20);
 			this->tbUser->TabIndex = 0;
@@ -227,7 +229,7 @@ namespace ProjectIF {
 				static_cast<System::Byte>(0)));
 			this->lblPw->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->lblPw->Location = System::Drawing::Point(403, 100);
+			this->lblPw->Location = System::Drawing::Point(402, 100);
 			this->lblPw->Name = L"lblPw";
 			this->lblPw->Size = System::Drawing::Size(134, 31);
 			this->lblPw->TabIndex = 4;
@@ -240,7 +242,7 @@ namespace ProjectIF {
 				static_cast<System::Byte>(0)));
 			this->lblUser->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->lblUser->Location = System::Drawing::Point(403, 0);
+			this->lblUser->Location = System::Drawing::Point(402, 0);
 			this->lblUser->Name = L"lblUser";
 			this->lblUser->Size = System::Drawing::Size(72, 31);
 			this->lblUser->TabIndex = 3;
@@ -251,7 +253,7 @@ namespace ProjectIF {
 			this->chbShowPassword->AutoSize = true;
 			this->chbShowPassword->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->chbShowPassword->Location = System::Drawing::Point(615, 149);
+			this->chbShowPassword->Location = System::Drawing::Point(614, 149);
 			this->chbShowPassword->Name = L"chbShowPassword";
 			this->chbShowPassword->Size = System::Drawing::Size(102, 17);
 			this->chbShowPassword->TabIndex = 5;
@@ -293,6 +295,7 @@ namespace ProjectIF {
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->tabPage2->Controls->Add(this->lblLoginTab);
 			this->tabPage2->Controls->Add(this->btnSignUpConfirm);
 			this->tabPage2->Controls->Add(this->label1);
 			this->tabPage2->Controls->Add(this->lblTerms);
@@ -462,6 +465,19 @@ namespace ProjectIF {
 			this->lblUserSign->Text = L"Username";
 			this->lblUserSign->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// lblLoginTab
+			// 
+			this->lblLoginTab->AutoSize = true;
+			this->lblLoginTab->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(98)), static_cast<System::Int32>(static_cast<System::Byte>(114)),
+				static_cast<System::Int32>(static_cast<System::Byte>(164)));
+			this->lblLoginTab->Location = System::Drawing::Point(25, 473);
+			this->lblLoginTab->Name = L"lblLoginTab";
+			this->lblLoginTab->Size = System::Drawing::Size(110, 13);
+			this->lblLoginTab->TabIndex = 14;
+			this->lblLoginTab->TabStop = true;
+			this->lblLoginTab->Text = L"Back to Login Screen";
+			this->lblLoginTab->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &LoginForm::lblLoginTab_LinkClicked);
+			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -567,6 +583,7 @@ namespace ProjectIF {
 
 		if (username->Length == 0 || password->Length == 0 || name->Length == 0) {
 			MessageBox::Show("Please enter username, name and password", "username, name or Password Empty", MessageBoxButtons::OK);
+			return;
 		}
 
 		if (String::Compare(passwordConfirm, password) != 0) {
@@ -579,14 +596,36 @@ namespace ProjectIF {
 			SqlConnection sqlConn(connString);
 			sqlConn.Open();
 			
-			String^ sqlQuery = "INSERT INTO users " + "(name, username, password, isRestaurant)"
+			String^ sqlQuery = "INSERT INTO users " + "(name, username, password, isRestaurant) VALUES " + "(@name, @username, @password, @isRestaurant);";
 			
+			SqlCommand command(sqlQuery, % sqlConn);
+			command.Parameters->AddWithValue("@name", name);
+			command.Parameters->AddWithValue("@username", username);
+			command.Parameters->AddWithValue("@password", password);
+			command.Parameters->AddWithValue("@isRestaurant", isRestaurant);
 
+			command.ExecuteNonQuery();
+			user = gcnew User;
+			user->name = name;
+			user->username = username;
+			user->password = password;
+			user->isRestaurant = isRestaurant;
+
+			this->tcLogin->SelectedIndex = 0;
+			sqlConn.Close();
+			this->tbUsernameSign->Clear();
+			this->tbNameSign->Clear();
+			this->tbPasswordSign1->Clear();
+			this->tbPasswordSign2->Clear();
+			MessageBox::Show("Signed Up!", "Signed Up Succesfully", MessageBoxButtons::OK);
 		}
 		catch (Exception^ e) {
 			MessageBox::Show("Failed to connect to database",
 				"Database Connection Error", MessageBoxButtons::OK);
 		}
+	}
+	private: System::Void lblLoginTab_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+		this->tcLogin->SelectedIndex = 0;
 	}
 };
 }
