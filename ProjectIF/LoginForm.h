@@ -111,6 +111,7 @@ namespace ProjectIF {
 			this->tcLogin = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->lblLoginTab = (gcnew System::Windows::Forms::LinkLabel());
 			this->btnSignUpConfirm = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->lblTerms = (gcnew System::Windows::Forms::Label());
@@ -125,7 +126,6 @@ namespace ProjectIF {
 			this->panelDivider = (gcnew System::Windows::Forms::Panel());
 			this->lblSignUpTitle = (gcnew System::Windows::Forms::Label());
 			this->lblUserSign = (gcnew System::Windows::Forms::Label());
-			this->lblLoginTab = (gcnew System::Windows::Forms::LinkLabel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->logo))->BeginInit();
 			this->table->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
@@ -153,7 +153,7 @@ namespace ProjectIF {
 			this->table->ColumnCount = 3;
 			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 65.30278F)));
 			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 34.69722F)));
-			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 380)));
+			this->table->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute, 381)));
 			this->table->Controls->Add(this->tbPW, 1, 3);
 			this->table->Controls->Add(this->tableLayoutPanel1, 1, 4);
 			this->table->Controls->Add(this->tbUser, 1, 1);
@@ -319,6 +319,19 @@ namespace ProjectIF {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			// 
+			// lblLoginTab
+			// 
+			this->lblLoginTab->AutoSize = true;
+			this->lblLoginTab->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(98)), static_cast<System::Int32>(static_cast<System::Byte>(114)),
+				static_cast<System::Int32>(static_cast<System::Byte>(164)));
+			this->lblLoginTab->Location = System::Drawing::Point(25, 473);
+			this->lblLoginTab->Name = L"lblLoginTab";
+			this->lblLoginTab->Size = System::Drawing::Size(110, 13);
+			this->lblLoginTab->TabIndex = 14;
+			this->lblLoginTab->TabStop = true;
+			this->lblLoginTab->Text = L"Back to Login Screen";
+			this->lblLoginTab->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &LoginForm::lblLoginTab_LinkClicked);
+			// 
 			// btnSignUpConfirm
 			// 
 			this->btnSignUpConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -465,19 +478,6 @@ namespace ProjectIF {
 			this->lblUserSign->Text = L"Username";
 			this->lblUserSign->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// lblLoginTab
-			// 
-			this->lblLoginTab->AutoSize = true;
-			this->lblLoginTab->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(98)), static_cast<System::Int32>(static_cast<System::Byte>(114)),
-				static_cast<System::Int32>(static_cast<System::Byte>(164)));
-			this->lblLoginTab->Location = System::Drawing::Point(25, 473);
-			this->lblLoginTab->Name = L"lblLoginTab";
-			this->lblLoginTab->Size = System::Drawing::Size(110, 13);
-			this->lblLoginTab->TabIndex = 14;
-			this->lblLoginTab->TabStop = true;
-			this->lblLoginTab->Text = L"Back to Login Screen";
-			this->lblLoginTab->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &LoginForm::lblLoginTab_LinkClicked);
-			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -487,6 +487,7 @@ namespace ProjectIF {
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->ClientSize = System::Drawing::Size(1036, 693);
 			this->Controls->Add(this->tcLogin);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"..\..\..\ProjectIF\ProjectIF\gatotp.ico")));
 			this->Name = L"LoginForm";
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
 			this->Text = L"LoginForm";
