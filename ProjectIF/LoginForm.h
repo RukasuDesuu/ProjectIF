@@ -505,6 +505,7 @@ namespace ProjectIF {
 #pragma endregion
 	
 	public: User^ user = nullptr;
+	public: bool^ isAuth = false;
 
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ username = this->tbUser->Text;
@@ -531,6 +532,7 @@ namespace ProjectIF {
 				user->name = reader->GetString(1);
 				user->username = reader->GetString(2);
 				user->password = reader->GetString(3);
+				user->isRestaurant = reader->GetBoolean(4);
 
 				this->Close();
 			}
