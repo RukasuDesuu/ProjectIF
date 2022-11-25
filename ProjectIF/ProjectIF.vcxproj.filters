@@ -35,10 +35,8 @@
     <ClInclude Include="MainForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\ProjectIF\ProjectIF\gatotp.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClInclude Include="restaurants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

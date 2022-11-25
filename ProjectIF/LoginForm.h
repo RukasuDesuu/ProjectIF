@@ -487,7 +487,7 @@ namespace ProjectIF {
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
 			this->ClientSize = System::Drawing::Size(1036, 693);
 			this->Controls->Add(this->tcLogin);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"..\..\..\ProjectIF\ProjectIF\gatotp.ico")));
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"LoginForm";
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
 			this->Text = L"LoginForm";
