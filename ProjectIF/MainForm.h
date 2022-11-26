@@ -48,7 +48,10 @@ namespace ProjectIF {
 	private: System::Windows::Forms::TextBox^ tbUsername;
 	private: System::Windows::Forms::Label^ lblUsername;
 	private: System::Windows::Forms::Label^ lblName;
-	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+
+
+
 
 
 
@@ -79,7 +82,7 @@ namespace ProjectIF {
 			this->tbName = (gcnew System::Windows::Forms::TextBox());
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
 			this->btnExplore = (gcnew System::Windows::Forms::Button());
-			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tcMain->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -105,7 +108,7 @@ namespace ProjectIF {
 			this->tabPage1->AutoScroll = true;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
 				static_cast<System::Int32>(static_cast<System::Byte>(90)));
-			this->tabPage1->Controls->Add(this->tableLayoutPanel1);
+			this->tabPage1->Controls->Add(this->flowLayoutPanel1);
 			this->tabPage1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
@@ -114,7 +117,6 @@ namespace ProjectIF {
 			this->tabPage1->Size = System::Drawing::Size(557, 422);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Explore";
-			this->tabPage1->Click += gcnew System::EventHandler(this, &MainForm::tabPage1_Click);
 			// 
 			// tabPage2
 			// 
@@ -199,23 +201,12 @@ namespace ProjectIF {
 			this->btnExplore->UseVisualStyleBackColor = false;
 			this->btnExplore->Click += gcnew System::EventHandler(this, &MainForm::btnExplore_Click);
 			// 
-			// tableLayoutPanel1
+			// flowLayoutPanel1
 			// 
-			this->tableLayoutPanel1->AutoScroll = true;
-			this->tableLayoutPanel1->AutoSize = true;
-			this->tableLayoutPanel1->ColumnCount = 1;
-			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				100)));
-			this->tableLayoutPanel1->Location = System::Drawing::Point(3, 3);
-			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
-			this->tableLayoutPanel1->RowCount = 5;
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 100)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 100)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 100)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 100)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 100)));
-			this->tableLayoutPanel1->Size = System::Drawing::Size(530, 500);
-			this->tableLayoutPanel1->TabIndex = 0;
+			this->flowLayoutPanel1->Location = System::Drawing::Point(6, 6);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(529, 543);
+			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// MainForm
 			// 
@@ -234,7 +225,6 @@ namespace ProjectIF {
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->tcMain->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
-			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			this->ResumeLayout(false);
@@ -255,10 +245,6 @@ namespace ProjectIF {
 		this->btnExplore->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(139)), static_cast<System::Int32>(static_cast<System::Byte>(233)), static_cast<System::Int32>(static_cast<System::Byte>(253)));
 		this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 	}
-	private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-	}
-private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
 };
 }

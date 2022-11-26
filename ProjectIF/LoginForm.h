@@ -84,6 +84,7 @@ namespace ProjectIF {
 
 
 
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -197,6 +198,7 @@ namespace ProjectIF {
 			// 
 			// btnLogin
 			// 
+			this->btnLogin->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnLogin->Location = System::Drawing::Point(3, 3);
 			this->btnLogin->Name = L"btnLogin";
 			this->btnLogin->Size = System::Drawing::Size(94, 23);
@@ -207,6 +209,7 @@ namespace ProjectIF {
 			// 
 			// btnSignUp
 			// 
+			this->btnSignUp->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnSignUp->Location = System::Drawing::Point(103, 3);
 			this->btnSignUp->Name = L"btnSignUp";
 			this->btnSignUp->Size = System::Drawing::Size(94, 23);
