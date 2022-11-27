@@ -16,6 +16,12 @@
     <Filter Include="Database">
       <UniqueIdentifier>{fa62cc74-0fdb-4b17-ac11-f956be5b48ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Controllers">
+      <UniqueIdentifier>{906b0fec-e92b-4d02-a2e3-dfda23bee10e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{96d8fe8e-6034-4c2e-b89e-e43929dbb0f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp">
@@ -26,20 +32,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LoginForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="restaurants.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="User.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="DbController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="restaurants.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
