@@ -38,5 +38,8 @@
     <ClInclude Include="restaurants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DbController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

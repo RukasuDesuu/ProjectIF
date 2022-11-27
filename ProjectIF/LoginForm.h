@@ -1,6 +1,6 @@
 #pragma once
 #include "User.h"
-
+#include "DbController.h"
 namespace ProjectIF {
 
 	using namespace System;
@@ -509,7 +509,10 @@ namespace ProjectIF {
 #pragma endregion
 	
 	public: User^ user = nullptr;
-	public: bool^ isAuth = false;
+	public: 
+		bool^ isAuth = false;
+		DbController* db = DbController::GetInstance();
+		SqlConnection^ sqlConn = db->getSqlConnection();
 
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ username = this->tbUser->Text;
@@ -520,12 +523,10 @@ namespace ProjectIF {
 		}
 
 		try {
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=myrestaurant;Integrated Security=True";
-			SqlConnection sqlConn(connString);
-			sqlConn.Open();
+			sqlConn->Open();
 
 			String^ sqlQuery = "SELECT * FROM users WHERE username=@username AND password=@pwd;";
-			SqlCommand command(sqlQuery, % sqlConn);
+			SqlCommand command(sqlQuery, sqlConn);
 			command.Parameters->AddWithValue("@username", username);
 			command.Parameters->AddWithValue("@pwd", password);
 
@@ -598,13 +599,10 @@ namespace ProjectIF {
 		}
 
 		try {
-			String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=myrestaurant;Integrated Security=True";
-			SqlConnection sqlConn(connString);
-			sqlConn.Open();
-			
+			sqlConn->Open();
 			String^ sqlQuery = "INSERT INTO users " + "(name, username, password, isRestaurant) VALUES " + "(@name, @username, @password, @isRestaurant);";
 			
-			SqlCommand command(sqlQuery, % sqlConn);
+			SqlCommand command(sqlQuery, sqlConn);
 			command.Parameters->AddWithValue("@name", name);
 			command.Parameters->AddWithValue("@username", username);
 			command.Parameters->AddWithValue("@password", password);
@@ -618,7 +616,7 @@ namespace ProjectIF {
 			user->isRestaurant = isRestaurant;
 
 			this->tcLogin->SelectedIndex = 0;
-			sqlConn.Close();
+			sqlConn->Close();
 			this->tbUsernameSign->Clear();
 			this->tbNameSign->Clear();
 			this->tbPasswordSign1->Clear();
