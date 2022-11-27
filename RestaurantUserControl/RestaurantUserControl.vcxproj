@@ -125,7 +125,6 @@
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Restaurant.h" />
     <ClInclude Include="RestaurantUserControl.h" />
   </ItemGroup>
   <ItemGroup>

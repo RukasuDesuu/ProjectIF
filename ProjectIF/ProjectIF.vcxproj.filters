@@ -44,10 +44,13 @@
     <ClInclude Include="User.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="restaurants.h">
+    <ClInclude Include="Restaurant.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="UserController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="RestaurantController.h">
       <Filter>Header Files\Controllers</Filter>
     </ClInclude>
   </ItemGroup>

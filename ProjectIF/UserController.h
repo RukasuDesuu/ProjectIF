@@ -8,8 +8,7 @@ ref class UserController {
 	public:
 		SqlConnection^ sqlConn = DbController::getCon();
 
-		UserController() {
-		}
+		UserController() { }
 
 		User^ readUser(String^ username, String^ password) {
 			try {

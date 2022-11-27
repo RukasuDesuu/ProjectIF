@@ -132,7 +132,8 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="restaurants.h" />
+    <ClInclude Include="Restaurant.h" />
+    <ClInclude Include="RestaurantController.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserController.h" />
   </ItemGroup>
