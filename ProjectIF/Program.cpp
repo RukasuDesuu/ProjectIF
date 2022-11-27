@@ -10,11 +10,11 @@ void main(array<String^>^ args)
 	ProjectIF::LoginForm loginForm;
 
 	loginForm.ShowDialog();
-	User^ user = loginForm.user;
+	User^ connectUser = loginForm.connectUser;
 
-	if (user != nullptr){
-		MessageBox::Show("Successfull Authentication of " + user->name, "Program.cpp", MessageBoxButtons::OK);
-		ProjectIF::MainForm mainForm(user);
+	if (connectUser != nullptr){
+		MessageBox::Show("Successfull Authentication of " + connectUser->name, "Program.cpp", MessageBoxButtons::OK);
+		ProjectIF::MainForm mainForm(connectUser);
 		Application::Run(% mainForm);
 	}
 	else {

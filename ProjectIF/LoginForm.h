@@ -1,8 +1,9 @@
 #pragma once
 #include "User.h"
-#include "DbController.h"
+#include "UserController.h"
 namespace ProjectIF {
 
+	using namespace System;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -507,12 +508,10 @@ namespace ProjectIF {
 
 		}
 #pragma endregion
-	
-	public: User^ user = nullptr;
 	public: 
 		bool^ isAuth = false;
-		DbController* db = DbController::GetInstance();
-		SqlConnection^ sqlConn = db->getSqlConnection();
+		User^ connectUser;
+		UserController^ userControll = gcnew UserController();
 
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ username = this->tbUser->Text;
@@ -523,27 +522,10 @@ namespace ProjectIF {
 		}
 
 		try {
-			sqlConn->Open();
+			connectUser = userControll->readUser(username, password);
 
-			String^ sqlQuery = "SELECT * FROM users WHERE username=@username AND password=@pwd;";
-			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@username", username);
-			command.Parameters->AddWithValue("@pwd", password);
-
-			SqlDataReader^ reader = command.ExecuteReader();
-			if (reader->Read()) {
-				user = gcnew User;
-				user->id = reader->GetInt32(0);
-				user->name = reader->GetString(1);
-				user->username = reader->GetString(2);
-				user->password = reader->GetString(3);
-				user->isRestaurant = reader->GetBoolean(4);
-
+			if (connectUser != nullptr) {
 				this->Close();
-			}
-			else {
-				MessageBox::Show("Username or password is incorrect",
-					"Username or Password Error", MessageBoxButtons::OK);
 			}
 		}
 		catch (Exception^ e) {
@@ -599,24 +581,17 @@ namespace ProjectIF {
 		}
 
 		try {
-			sqlConn->Open();
-			String^ sqlQuery = "INSERT INTO users " + "(name, username, password, isRestaurant) VALUES " + "(@name, @username, @password, @isRestaurant);";
-			
-			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@name", name);
-			command.Parameters->AddWithValue("@username", username);
-			command.Parameters->AddWithValue("@password", password);
-			command.Parameters->AddWithValue("@isRestaurant", isRestaurant);
+			User^ user = gcnew User();
 
-			command.ExecuteNonQuery();
-			user = gcnew User;
 			user->name = name;
-			user->username = username;
 			user->password = password;
-			user->isRestaurant = isRestaurant;
+			user->username = username;
+			user->idRestaurant = 0;
+
+			userControll->createUser(user);
 
 			this->tcLogin->SelectedIndex = 0;
-			sqlConn->Close();
+			//sqlConn->Close();
 			this->tbUsernameSign->Clear();
 			this->tbNameSign->Clear();
 			this->tbPasswordSign1->Clear();

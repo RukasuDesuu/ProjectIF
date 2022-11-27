@@ -30,6 +30,9 @@
     <ClCompile Include="Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DbController.cpp">
+      <Filter>Header Files\Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -41,11 +44,11 @@
     <ClInclude Include="User.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="DbController.h">
-      <Filter>Header Files\Controllers</Filter>
-    </ClInclude>
     <ClInclude Include="restaurants.h">
       <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="UserController.h">
+      <Filter>Header Files\Controllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

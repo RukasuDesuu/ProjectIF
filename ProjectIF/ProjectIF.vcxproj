@@ -121,11 +121,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DbController.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DbController.h" />
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -134,6 +134,7 @@
     </ClInclude>
     <ClInclude Include="restaurants.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="UserController.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="LoginForm.resx">
