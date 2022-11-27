@@ -46,23 +46,37 @@ ref class UserController {
 				}
 			}
 			catch (Exception^ e) {
-				sqlConn->Close();
+				if (sqlConn->State.ToString()->Equals("Open")) {
+					sqlConn->Close();
+				}
 			}
 		}
 
-		void createUser(User^ user) {
-			sqlConn->Open();
+		bool createUser(User^ user) {
+			try {
+				sqlConn->Open();
+
+				String^ sqlQuery = "INSERT INTO users " + "(name, username, password, idRestaurant) VALUES " + "(@name, @username, @password, @idRestaurant);";
+
+				SqlCommand command(sqlQuery, sqlConn);
+				command.Parameters->AddWithValue("@name", user->name);
+				command.Parameters->AddWithValue("@username", user->username);
+				command.Parameters->AddWithValue("@password", user->password);
+				command.Parameters->AddWithValue("@idRestaurant", user->idRestaurant);
+
+				command.ExecuteNonQuery();
+
+				return true;
+
+				sqlConn->Close();
+			}
+			catch (Exception^ e) {
+				if (sqlConn->State.ToString()->Equals("Open")) {
+					sqlConn->Close();
+				}
+
+				return false;
+			}
 			
-			String^ sqlQuery = "INSERT INTO users " + "(name, username, password, isRestaurant) VALUES " + "(@name, @username, @password, @isRestaurant);";
-
-			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@name", user->name);
-			command.Parameters->AddWithValue("@username", user->username);
-			command.Parameters->AddWithValue("@password", user->password);
-			command.Parameters->AddWithValue("@isRestaurant", user->idRestaurant);
-
-			command.ExecuteNonQuery();
-
-			sqlConn->Close();
 		}
 };

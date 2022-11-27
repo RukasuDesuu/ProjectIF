@@ -586,9 +586,14 @@ namespace ProjectIF {
 			user->name = name;
 			user->password = password;
 			user->username = username;
-			user->idRestaurant = 0;
+			user->idRestaurant = 4;
 
-			userControll->createUser(user);
+			bool result = userControll->createUser(user);
+
+			if (!result) {
+				MessageBox::Show("Deu nao man", "Signed Up not Succesfully", MessageBoxButtons::OK);
+				return;
+			}
 
 			this->tcLogin->SelectedIndex = 0;
 			//sqlConn->Close();
@@ -596,7 +601,9 @@ namespace ProjectIF {
 			this->tbNameSign->Clear();
 			this->tbPasswordSign1->Clear();
 			this->tbPasswordSign2->Clear();
+
 			MessageBox::Show("Signed Up!", "Signed Up Succesfully", MessageBoxButtons::OK);
+
 		}
 		catch (Exception^ e) {
 			MessageBox::Show("Failed to connect to database",
