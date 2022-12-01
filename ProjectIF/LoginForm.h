@@ -71,7 +71,7 @@ namespace ProjectIF {
 	private: System::Windows::Forms::TextBox^ tbUsernameSign;
 	private: System::Windows::Forms::Panel^ panelDivider;
 	private: System::Windows::Forms::Label^ lblSignUpTitle;
-	private: System::Windows::Forms::CheckBox^ chbIsRestaurant;
+
 	private: System::Windows::Forms::Label^ lblTerms;
 	private: System::Windows::Forms::Button^ btnSignUpConfirm;
 	private: System::Windows::Forms::Label^ label1;
@@ -118,7 +118,6 @@ namespace ProjectIF {
 			this->btnSignUpConfirm = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->lblTerms = (gcnew System::Windows::Forms::Label());
-			this->chbIsRestaurant = (gcnew System::Windows::Forms::CheckBox());
 			this->tbPasswordSign2 = (gcnew System::Windows::Forms::TextBox());
 			this->lblPasswordSign2 = (gcnew System::Windows::Forms::Label());
 			this->tbPasswordSign1 = (gcnew System::Windows::Forms::TextBox());
@@ -304,7 +303,6 @@ namespace ProjectIF {
 			this->tabPage2->Controls->Add(this->btnSignUpConfirm);
 			this->tabPage2->Controls->Add(this->label1);
 			this->tabPage2->Controls->Add(this->lblTerms);
-			this->tabPage2->Controls->Add(this->chbIsRestaurant);
 			this->tabPage2->Controls->Add(this->tbPasswordSign2);
 			this->tabPage2->Controls->Add(this->lblPasswordSign2);
 			this->tabPage2->Controls->Add(this->tbPasswordSign1);
@@ -371,19 +369,6 @@ namespace ProjectIF {
 			this->lblTerms->Size = System::Drawing::Size(222, 13);
 			this->lblTerms->TabIndex = 11;
 			this->lblTerms->Text = L"By clicking on confirm you are agreeing to our";
-			// 
-			// chbIsRestaurant
-			// 
-			this->chbIsRestaurant->AutoSize = true;
-			this->chbIsRestaurant->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->chbIsRestaurant->Location = System::Drawing::Point(22, 111);
-			this->chbIsRestaurant->Name = L"chbIsRestaurant";
-			this->chbIsRestaurant->Size = System::Drawing::Size(220, 29);
-			this->chbIsRestaurant->TabIndex = 10;
-			this->chbIsRestaurant->Text = L"Restaurant Account";
-			this->chbIsRestaurant->UseVisualStyleBackColor = true;
-			this->chbIsRestaurant->CheckedChanged += gcnew System::EventHandler(this, &LoginForm::chbIsRestaurant_CheckedChanged);
 			// 
 			// tbPasswordSign2
 			// 
@@ -533,6 +518,9 @@ namespace ProjectIF {
 			if (connectUser != nullptr) {
 				this->Close();
 			}
+			else {
+				MessageBox::Show("User Not Found", "Error", MessageBoxButtons::OK);
+			}
 		}
 		catch (Exception^ e) {
 			MessageBox::Show("Failed to connect to database",
@@ -556,14 +544,7 @@ namespace ProjectIF {
 		}*/
 	}
 
-	private: System::Void chbIsRestaurant_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		if (this->chbIsRestaurant->Checked) {
-			this->lblName->Text = "Restaurant Name";
-		}
-		else {
-			this->lblName->Text = "Full Name";
-		}
-	}
+
 
 	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->tcLogin->ItemSize = System::Drawing::Size(0, 1);
@@ -574,7 +555,6 @@ namespace ProjectIF {
 		String^ password = this->tbPasswordSign1->Text;
 		String^ passwordConfirm = this->tbPasswordSign2->Text;
 		String^ name = this->tbNameSign->Text;
-		bool^ isRestaurant = chbIsRestaurant->Checked;
 
 		if (username->Length == 0 || password->Length == 0 || name->Length == 0) {
 			MessageBox::Show("Please enter username, name and password", "username, name or Password Empty", MessageBoxButtons::OK);
@@ -597,7 +577,7 @@ namespace ProjectIF {
 			bool result = userControll->createUser(user);
 
 			if (!result) {
-				MessageBox::Show("Deu nao man", "Signed Up not Succesfully", MessageBoxButtons::OK);
+				MessageBox::Show("Failed, try again", "Sign Up not Succesfully", MessageBoxButtons::OK);
 				return;
 			}
 
