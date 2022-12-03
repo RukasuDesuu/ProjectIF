@@ -9,7 +9,7 @@ public:
         static SqlConnection^ connection;
 
         DbController() {
-            String^ connectionString = "Data Source=localhost;Initial Catalog=BancoLukinhas;Integrated Security=True";
+            String^ connectionString = "Data Source=localhost\\sqlexpress;Initial Catalog=myrestaurant;Integrated Security=True";
 
             connection = gcnew SqlConnection(connectionString);
         }

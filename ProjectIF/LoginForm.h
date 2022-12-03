@@ -1,7 +1,7 @@
 #pragma once
 #include "User.h"
 #include "UserController.h"
-#include "RestaurantController.h"
+
 namespace ProjectIF {
 
 	using namespace System;
@@ -498,15 +498,12 @@ namespace ProjectIF {
 		bool^ isAuth = false;
 		User^ connectUser;
 		UserController^ userControll = gcnew UserController();
-		RestaurantController^ restaurantController = gcnew RestaurantController();
 
 	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 		try {
 			String^ username = this->tbUser->Text;
 			String^ password = this->tbPW->Text;
 
-			restaurantController->getAllRestaurants();
-			restaurantController->getRestaurantById(8);
 
 			if (username->Length == 0 || password->Length == 0) {
 				MessageBox::Show("Please enter username and password", "username or Password Empty", MessageBoxButtons::OK);
@@ -572,7 +569,6 @@ namespace ProjectIF {
 			user->name = name;
 			user->password = password;
 			user->username = username;
-			user->idRestaurant = 4;
 
 			bool result = userControll->createUser(user);
 

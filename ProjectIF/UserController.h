@@ -29,13 +29,6 @@ ref class UserController {
 					user->username = reader->GetString(2);
 					user->password = reader->GetString(3);
 
-					if (reader->IsDBNull(4)) {
-						user->idRestaurant = nullptr;
-					}
-					else {
-						user->idRestaurant = reader->GetInt32(4);
-					}
-
 					sqlConn->Close();
 					return user;
 				}
@@ -55,13 +48,13 @@ ref class UserController {
 			try {
 				sqlConn->Open();
 
-				String^ sqlQuery = "INSERT INTO users " + "(name, username, password, idRestaurant) VALUES " + "(@name, @username, @password, @idRestaurant);";
+				String^ sqlQuery = "INSERT INTO users " + "(name, username, password) VALUES " + "(@name, @username, @password);";
 
 				SqlCommand command(sqlQuery, sqlConn);
 				command.Parameters->AddWithValue("@name", user->name);
 				command.Parameters->AddWithValue("@username", user->username);
 				command.Parameters->AddWithValue("@password", user->password);
-				command.Parameters->AddWithValue("@idRestaurant", user->idRestaurant);
+				//command.Parameters->AddWithValue("@idRestaurant", user->idRestaurant);
 
 				command.ExecuteNonQuery();
 

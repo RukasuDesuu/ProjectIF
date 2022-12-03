@@ -8,5 +8,4 @@ public:
 	String^ name;
 	String^ username;
 	String^ password;
-	int^ idRestaurant;
 };

@@ -8,4 +8,5 @@ public:
 	String^ name;
 	String^ descricao;
 	bool^ isDog;
+	int^ idUser;
 };
