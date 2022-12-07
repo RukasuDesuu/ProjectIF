@@ -2,6 +2,7 @@
 #include "User.h"
 #include "RestaurantController.h"
 #include "Restaurant.h"
+#include "RestaurantUC.h"
 
 namespace ProjectIF {
 
@@ -479,9 +480,9 @@ namespace ProjectIF {
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->ItemSize = System::Drawing::Size(0, 1);
 
-		RestaurantUserControl::MyUserControl^ teste;
+		RestaurantUC^ teste;
 		for each (Restaurant^ i in restaurantController->getAllRestaurants()) {
-			this->flowLayoutPanel1->Controls->Add((gcnew RestaurantUserControl::MyUserControl(i)));
+			this->flowLayoutPanel1->Controls->Add((gcnew RestaurantUC(i)));
 		}
 		
 	}

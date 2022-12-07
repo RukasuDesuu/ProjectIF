@@ -134,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="Restaurant.h" />
     <ClInclude Include="RestaurantController.h" />
+    <ClInclude Include="RestaurantUC.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="User.h" />
     <ClInclude Include="UserController.h" />
   </ItemGroup>
@@ -146,11 +149,6 @@
       <DependentUpon>MainForm.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RestaurantUserControl\RestaurantUserControl.vcxproj">
-      <Project>{4bfd9571-a67b-4d49-ba27-f8938f5260d1}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
