@@ -44,7 +44,7 @@ namespace RestaurantUserControl {
 	private: System::Windows::Forms::PictureBox^ RestaurantLogo;
 	private: System::Windows::Forms::Label^ lblRestDesc;
 	private: System::Windows::Forms::Button^ btnRestAccess;
-	private: System::Windows::Forms::Panel^ dsgPanel;
+
 
 
 	protected:
@@ -66,26 +66,27 @@ namespace RestaurantUserControl {
 			this->RestaurantLogo = (gcnew System::Windows::Forms::PictureBox());
 			this->lblRestDesc = (gcnew System::Windows::Forms::Label());
 			this->btnRestAccess = (gcnew System::Windows::Forms::Button());
-			this->dsgPanel = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->RestaurantLogo))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblRestName
 			// 
 			this->lblRestName->AutoSize = true;
-			this->lblRestName->Location = System::Drawing::Point(4, 4);
+			this->lblRestName->Location = System::Drawing::Point(5, 5);
+			this->lblRestName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblRestName->Name = L"lblRestName";
-			this->lblRestName->Size = System::Drawing::Size(87, 13);
+			this->lblRestName->Size = System::Drawing::Size(109, 16);
 			this->lblRestName->TabIndex = 0;
 			this->lblRestName->Text = L"RestaurantName";
 			// 
 			// RestaurantLogo
 			// 
-			this->RestaurantLogo->Location = System::Drawing::Point(7, 20);
-			this->RestaurantLogo->MaximumSize = System::Drawing::Size(64, 64);
-			this->RestaurantLogo->MinimumSize = System::Drawing::Size(64, 64);
+			this->RestaurantLogo->Location = System::Drawing::Point(9, 25);
+			this->RestaurantLogo->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->RestaurantLogo->MaximumSize = System::Drawing::Size(85, 79);
+			this->RestaurantLogo->MinimumSize = System::Drawing::Size(85, 79);
 			this->RestaurantLogo->Name = L"RestaurantLogo";
-			this->RestaurantLogo->Size = System::Drawing::Size(64, 64);
+			this->RestaurantLogo->Size = System::Drawing::Size(85, 79);
 			this->RestaurantLogo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->RestaurantLogo->TabIndex = 1;
 			this->RestaurantLogo->TabStop = false;
@@ -93,9 +94,10 @@ namespace RestaurantUserControl {
 			// lblRestDesc
 			// 
 			this->lblRestDesc->AutoSize = true;
-			this->lblRestDesc->Location = System::Drawing::Point(78, 30);
+			this->lblRestDesc->Location = System::Drawing::Point(104, 37);
+			this->lblRestDesc->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblRestDesc->Name = L"lblRestDesc";
-			this->lblRestDesc->Size = System::Drawing::Size(115, 13);
+			this->lblRestDesc->Size = System::Drawing::Size(143, 16);
 			this->lblRestDesc->TabIndex = 2;
 			this->lblRestDesc->Text = L"Restaurant Description";
 			// 
@@ -106,37 +108,27 @@ namespace RestaurantUserControl {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnRestAccess->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnRestAccess->ForeColor = System::Drawing::Color::Black;
-			this->btnRestAccess->Location = System::Drawing::Point(497, 4);
+			this->btnRestAccess->Location = System::Drawing::Point(667, 0);
+			this->btnRestAccess->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnRestAccess->Name = L"btnRestAccess";
-			this->btnRestAccess->Size = System::Drawing::Size(34, 89);
+			this->btnRestAccess->Size = System::Drawing::Size(45, 118);
 			this->btnRestAccess->TabIndex = 3;
 			this->btnRestAccess->Text = L">";
 			this->btnRestAccess->UseVisualStyleBackColor = false;
 			// 
-			// dsgPanel
-			// 
-			this->dsgPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->dsgPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
-				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->dsgPanel->Location = System::Drawing::Point(0, 90);
-			this->dsgPanel->Name = L"dsgPanel";
-			this->dsgPanel->Size = System::Drawing::Size(496, 10);
-			this->dsgPanel->TabIndex = 4;
-			// 
 			// MyUserControl
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
-				static_cast<System::Int32>(static_cast<System::Byte>(90)));
-			this->Controls->Add(this->dsgPanel);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(62)),
+				static_cast<System::Int32>(static_cast<System::Byte>(110)));
 			this->Controls->Add(this->btnRestAccess);
 			this->Controls->Add(this->lblRestDesc);
 			this->Controls->Add(this->RestaurantLogo);
 			this->Controls->Add(this->lblRestName);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"MyUserControl";
-			this->Size = System::Drawing::Size(534, 96);
+			this->Size = System::Drawing::Size(712, 118);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->RestaurantLogo))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
