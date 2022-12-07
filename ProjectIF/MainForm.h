@@ -17,13 +17,14 @@ namespace ProjectIF {
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
+		int^ id = nullptr;
 	public:
 		MainForm(User^ user)
 		{
 			InitializeComponent();
 			this->tbName->Text = user->name;
 			this->tbUsername->Text = user->username;
-			int^ id = user->id;
+			id = user->id;
 		}
 
 	protected:
@@ -497,6 +498,13 @@ namespace ProjectIF {
 			}
 
 			MessageBox::Show("Signed Up!", "Signed Up Succesfully", MessageBoxButtons::OK);
+			this->tbRestName->Text = "";
+			this->tbRestDesc->Text = "";
+			this->chbIsDog->Checked = false;
+			this->tcMain->SelectedIndex = 0;
+			this->btnExplore->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(139)), static_cast<System::Int32>(static_cast<System::Byte>(233)), static_cast<System::Int32>(static_cast<System::Byte>(253)));
+			this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnRestaurantCad->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 
 		}
 		catch (Exception^ e) {

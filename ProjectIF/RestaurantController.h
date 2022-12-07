@@ -83,12 +83,13 @@ public:
 		try {
 			sqlConn->Open();
 
-			String^ sqlQuery = "INSERT INTO Restaurants " + "VALUES (@name, @descricao, @isDog);";
+			String^ sqlQuery = "INSERT INTO Restaurants " + "VALUES (@name, @descricao, @isDog, @IdUser);";
 
 			SqlCommand command(sqlQuery, sqlConn);
 			command.Parameters->AddWithValue("@name", restaurant->name);
 			command.Parameters->AddWithValue("@descricao", restaurant->descricao);
 			command.Parameters->AddWithValue("@isDog", restaurant->isDog);
+			command.Parameters->AddWithValue("@IdUser", restaurant->idUser);
 
 			command.ExecuteNonQuery();
 
