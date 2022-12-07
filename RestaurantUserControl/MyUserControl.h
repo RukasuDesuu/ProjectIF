@@ -1,4 +1,5 @@
 #pragma once
+#include "..\ProjectIF\Restaurant.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -16,16 +17,11 @@ namespace RestaurantUserControl {
 	public ref class MyUserControl : public System::Windows::Forms::UserControl
 	{
 	public:
-		MyUserControl(void)
+		MyUserControl(Restaurant^ restaurant)
 		{
 			InitializeComponent();
-			/*if (restaurant->isRestaurant) {
-				this->lblRestName->Text = restaurant->name;
-				this->lblRestDesc -> Text = "not implemented yet";
-			}
-			else {
-				return;
-			}*/
+			this->lblRestName->Text = restaurant->name;
+			this->lblRestDesc->Text = restaurant->descricao;
 		}
 
 	protected:

@@ -480,10 +480,10 @@ namespace ProjectIF {
 		this->tcMain->ItemSize = System::Drawing::Size(0, 1);
 
 		RestaurantUserControl::MyUserControl^ teste;
-
-		for (int i = 0; i < 10; i++) {
-			this->flowLayoutPanel1->Controls->Add((gcnew RestaurantUserControl::MyUserControl()));
+		for each (Restaurant^ i in restaurantController->getAllRestaurants()) {
+			this->flowLayoutPanel1->Controls->Add((gcnew RestaurantUserControl::MyUserControl(i)));
 		}
+		
 	}
 	private: System::Void btnProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->SelectedIndex = 1;
