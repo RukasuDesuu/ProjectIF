@@ -93,10 +93,15 @@ using namespace System::Collections::Generic;
 				review->Comment = reader->GetString(1);
 				review->Rate = reader->GetInt32(2);
 				review->IdRestaurant = reader->GetInt32(3);
-				review->user->id = reader->GetInt32(4);
-				review->user->name = reader->GetString(6);
-				review->user->username = reader->GetString(7);
-				review->user->password = "";
+
+				User^ user = gcnew User();
+
+				user->id = reader->GetInt32(4);
+				user->name = reader->GetString(6);
+				user->username = reader->GetString(7);
+				user->password = "";
+
+				review->user = user;
 
 				reviews->Add(review);
 			}
