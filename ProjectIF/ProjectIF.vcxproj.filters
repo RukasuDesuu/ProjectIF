@@ -59,5 +59,11 @@
     <ClInclude Include="RestaurantUC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ReviewController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Review.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
