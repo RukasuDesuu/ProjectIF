@@ -45,7 +45,7 @@ public:
 		}
 	}
 
-	Restaurant^ getRestaurantByUser(int idUser) {
+	Restaurant^ getRestaurantByUser(int^ idUser) {
 		try {
 			sqlConn->Open();
 

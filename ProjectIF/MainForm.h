@@ -3,6 +3,8 @@
 #include "RestaurantController.h"
 #include "Restaurant.h"
 #include "RestaurantUC.h"
+#include "ReviewController.h"
+#include "Review.h"
 
 namespace ProjectIF {
 
@@ -19,6 +21,7 @@ namespace ProjectIF {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 		int^ id = nullptr;
+		int^ idRestaurant = nullptr;
 	public:
 		MainForm(User^ user)
 		{
@@ -69,7 +72,7 @@ namespace ProjectIF {
 	private: System::Windows::Forms::Button^ btnSignUpConfirm;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ lblTerms;
-	private: System::Windows::Forms::TextBox^ tbID;
+
 	private: System::Windows::Forms::Label^ lblIdUser;
 	private: System::Windows::Forms::TabPage^ RestaurantPage;
 	private: System::Windows::Forms::Label^ lblRate;
@@ -77,6 +80,15 @@ namespace ProjectIF {
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 	private: System::Windows::Forms::Label^ lblRestDescPage;
 	private: System::Windows::Forms::Label^ lblRestNamePage;
+	private: System::Windows::Forms::Label^ lblReviewRate;
+
+	private:
+	private: System::Windows::Forms::Button^ btnReviewSend;
+	public protected:
+	private: System::Windows::Forms::TextBox^ tbReviewAdd;
+	private: System::Windows::Forms::Label^ lblRateValue;
+	public protected: System::Windows::Forms::TrackBar^ trkRate;
+	private:
 
 
 
@@ -119,7 +131,6 @@ namespace ProjectIF {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->tbID = (gcnew System::Windows::Forms::TextBox());
 			this->lblUsername = (gcnew System::Windows::Forms::Label());
 			this->lblName = (gcnew System::Windows::Forms::Label());
 			this->tbUsername = (gcnew System::Windows::Forms::TextBox());
@@ -137,6 +148,11 @@ namespace ProjectIF {
 			this->tbRestName = (gcnew System::Windows::Forms::TextBox());
 			this->lblRestName = (gcnew System::Windows::Forms::Label());
 			this->RestaurantPage = (gcnew System::Windows::Forms::TabPage());
+			this->lblRateValue = (gcnew System::Windows::Forms::Label());
+			this->lblReviewRate = (gcnew System::Windows::Forms::Label());
+			this->trkRate = (gcnew System::Windows::Forms::TrackBar());
+			this->btnReviewSend = (gcnew System::Windows::Forms::Button());
+			this->tbReviewAdd = (gcnew System::Windows::Forms::TextBox());
 			this->lblRate = (gcnew System::Windows::Forms::Label());
 			this->lblReviews = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
@@ -151,6 +167,7 @@ namespace ProjectIF {
 			this->tabPage3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGatito))->BeginInit();
 			this->RestaurantPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trkRate))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tcMain
@@ -187,16 +204,18 @@ namespace ProjectIF {
 			// 
 			// flowLayoutPanel1
 			// 
+			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->flowLayoutPanel1->AutoSize = true;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(6, 6);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(529, 543);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(529, 363);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// tabPage2
 			// 
 			this->tabPage2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
 				static_cast<System::Int32>(static_cast<System::Byte>(90)));
-			this->tabPage2->Controls->Add(this->tbID);
 			this->tabPage2->Controls->Add(this->lblUsername);
 			this->tabPage2->Controls->Add(this->lblName);
 			this->tabPage2->Controls->Add(this->tbUsername);
@@ -209,13 +228,6 @@ namespace ProjectIF {
 			this->tabPage2->Size = System::Drawing::Size(580, 446);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Profile";
-			// 
-			// tbID
-			// 
-			this->tbID->Location = System::Drawing::Point(6, 184);
-			this->tbID->Name = L"tbID";
-			this->tbID->Size = System::Drawing::Size(100, 20);
-			this->tbID->TabIndex = 4;
 			// 
 			// lblUsername
 			// 
@@ -369,6 +381,7 @@ namespace ProjectIF {
 			this->tbRestDesc->Name = L"tbRestDesc";
 			this->tbRestDesc->Size = System::Drawing::Size(247, 80);
 			this->tbRestDesc->TabIndex = 4;
+			this->tbRestDesc->TextChanged += gcnew System::EventHandler(this, &MainForm::tbRestDesc_TextChanged);
 			// 
 			// lblRestDesc
 			// 
@@ -399,6 +412,11 @@ namespace ProjectIF {
 			// 
 			this->RestaurantPage->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
 				static_cast<System::Int32>(static_cast<System::Byte>(90)));
+			this->RestaurantPage->Controls->Add(this->lblRateValue);
+			this->RestaurantPage->Controls->Add(this->lblReviewRate);
+			this->RestaurantPage->Controls->Add(this->trkRate);
+			this->RestaurantPage->Controls->Add(this->btnReviewSend);
+			this->RestaurantPage->Controls->Add(this->tbReviewAdd);
 			this->RestaurantPage->Controls->Add(this->lblRate);
 			this->RestaurantPage->Controls->Add(this->lblReviews);
 			this->RestaurantPage->Controls->Add(this->flowLayoutPanel2);
@@ -412,7 +430,53 @@ namespace ProjectIF {
 			this->RestaurantPage->Size = System::Drawing::Size(580, 446);
 			this->RestaurantPage->TabIndex = 3;
 			this->RestaurantPage->Text = L"RestaurantPage";
-			this->RestaurantPage->Click += gcnew System::EventHandler(this, &MainForm::RestaurantPage_Click);
+			// 
+			// lblRateValue
+			// 
+			this->lblRateValue->AutoSize = true;
+			this->lblRateValue->Location = System::Drawing::Point(414, 175);
+			this->lblRateValue->Name = L"lblRateValue";
+			this->lblRateValue->Size = System::Drawing::Size(0, 13);
+			this->lblRateValue->TabIndex = 9;
+			// 
+			// lblReviewRate
+			// 
+			this->lblReviewRate->AutoSize = true;
+			this->lblReviewRate->Location = System::Drawing::Point(374, 175);
+			this->lblReviewRate->Name = L"lblReviewRate";
+			this->lblReviewRate->Size = System::Drawing::Size(33, 13);
+			this->lblReviewRate->TabIndex = 8;
+			this->lblReviewRate->Text = L"Rate:";
+			// 
+			// trkRate
+			// 
+			this->trkRate->LargeChange = 10;
+			this->trkRate->Location = System::Drawing::Point(373, 194);
+			this->trkRate->Name = L"trkRate";
+			this->trkRate->Size = System::Drawing::Size(201, 45);
+			this->trkRate->TabIndex = 7;
+			this->trkRate->Value = 5;
+			this->trkRate->Scroll += gcnew System::EventHandler(this, &MainForm::trkRate_Scroll);
+			// 
+			// btnReviewSend
+			// 
+			this->btnReviewSend->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
+				static_cast<System::Int32>(static_cast<System::Byte>(90)));
+			this->btnReviewSend->Location = System::Drawing::Point(5, 261);
+			this->btnReviewSend->Name = L"btnReviewSend";
+			this->btnReviewSend->Size = System::Drawing::Size(65, 31);
+			this->btnReviewSend->TabIndex = 6;
+			this->btnReviewSend->Text = L"SEND";
+			this->btnReviewSend->UseVisualStyleBackColor = true;
+			this->btnReviewSend->Click += gcnew System::EventHandler(this, &MainForm::btnReviewSend_Click);
+			// 
+			// tbReviewAdd
+			// 
+			this->tbReviewAdd->Location = System::Drawing::Point(5, 175);
+			this->tbReviewAdd->Multiline = true;
+			this->tbReviewAdd->Name = L"tbReviewAdd";
+			this->tbReviewAdd->Size = System::Drawing::Size(362, 80);
+			this->tbReviewAdd->TabIndex = 5;
 			// 
 			// lblRate
 			// 
@@ -434,9 +498,12 @@ namespace ProjectIF {
 			// 
 			// flowLayoutPanel2
 			// 
-			this->flowLayoutPanel2->Location = System::Drawing::Point(4, 176);
+			this->flowLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->flowLayoutPanel2->AutoSize = true;
+			this->flowLayoutPanel2->Location = System::Drawing::Point(4, 298);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(570, 664);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(570, 542);
 			this->flowLayoutPanel2->TabIndex = 2;
 			// 
 			// lblRestDescPage
@@ -520,6 +587,7 @@ namespace ProjectIF {
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->tcMain->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			this->tabPage3->ResumeLayout(false);
@@ -527,6 +595,7 @@ namespace ProjectIF {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGatito))->EndInit();
 			this->RestaurantPage->ResumeLayout(false);
 			this->RestaurantPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trkRate))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -546,10 +615,10 @@ namespace ProjectIF {
 	}
 
 	protected: System::Void changeTab(System::Object^ sender, System::EventArgs^ e){
-		
 		this->tcMain->SelectedIndex = 3;
 		this->lblRestNamePage->Text = dynamic_cast<Restaurant^>(sender)->name;
 		this->lblRestDescPage->Text = "Description: " + dynamic_cast<Restaurant^>(sender)->descricao;
+		idRestaurant = dynamic_cast<Restaurant^>(sender)->idRestaurant;
 	}
 
 	private: System::Void btnProfile_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -564,17 +633,25 @@ namespace ProjectIF {
 		this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 		this->btnRestaurantCad->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 	}
-
+	public:
+		RestaurantController^ restaurantController = gcnew RestaurantController();
+		Restaurant^ restaurant = gcnew Restaurant();
 	private: System::Void btnRestaurantCad_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->SelectedIndex = 2;
 		this->btnRestaurantCad->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(139)), static_cast<System::Int32>(static_cast<System::Byte>(233)), static_cast<System::Int32>(static_cast<System::Byte>(253)));
 		this->btnExplore->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 		this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
-		this->lblIdUser->Text = "IdUser: ";
+		Restaurant^ restaura = restaurantController->getRestaurantByUser(id);
+		if ( restaura != nullptr) {
+			this->tbRestName->Enabled = false;
+			this->tbRestDesc->Enabled = false;
+			this->btnRestaurantCad->Enabled = false;
+			this->tbRestName->Text = restaura -> name;
+			this->tbRestDesc->Text = restaura -> descricao;
+		}
+
 	}
-	public:
-		RestaurantController^ restaurantController = gcnew RestaurantController();
-		Restaurant^ restaurant = gcnew Restaurant();
+	
 	private: System::Void btnSignUpConfirm_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		//User^ user = gcnew User();
@@ -616,7 +693,48 @@ namespace ProjectIF {
 	}
 	
 	
-	private: System::Void RestaurantPage_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+
+
+	private: System::Void trkRate_Scroll(System::Object^ sender, System::EventArgs^ e) {
+		double rateValue = trkRate->Value / 2.0;
+		this->lblRateValue->Text = rateValue.ToString();
+	}
+
+	private: System::Void btnReviewSend_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ comment = tbReviewAdd->Text;
+		int^ rating = trkRate->Value;
+	
+		Review^ review = gcnew Review();
+		ReviewController^ reviewController = gcnew ReviewController();
+		try {
+			review->Comment = comment;
+			review->Rate = rating;
+			review->IdRestaurant = idRestaurant;
+			review->IdUser = id;
+
+			bool result = reviewController->createReview(review);
+
+			if (!result) {
+				MessageBox::Show("Failed, try again", "Review not Succesfull", MessageBoxButtons::OK);
+				return;
+			}
+
+			MessageBox::Show("Review!", "Review Sent Succesfully", MessageBoxButtons::OK);
+
+			this->tbReviewAdd->Text = "";
+		
+
+		}
+		catch (Exception^ e) {
+			MessageBox::Show("Failed to connect to database",
+				"Database Connection Error", MessageBoxButtons::OK);
+		}
+		
+		
+
+
+
 	}
 };
 }

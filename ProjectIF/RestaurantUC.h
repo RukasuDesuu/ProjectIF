@@ -112,8 +112,8 @@ namespace ProjectIF {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(62)),
-				static_cast<System::Int32>(static_cast<System::Byte>(110)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(98)), static_cast<System::Int32>(static_cast<System::Byte>(114)),
+				static_cast<System::Int32>(static_cast<System::Byte>(164)));
 			this->Controls->Add(this->btnRestAccess);
 			this->Controls->Add(this->lblRestDesc);
 			this->Controls->Add(this->RestaurantLogo);

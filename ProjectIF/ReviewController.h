@@ -5,8 +5,8 @@ using namespace System;
 using namespace System::Data::SqlClient;
 using namespace System::Collections::Generic;
 
-ref class ReviewController {
-
+ ref class ReviewController {
+ public:
 	SqlConnection^ sqlConn = DbController::getCon();
 
 	ReviewController() { }
@@ -71,38 +71,40 @@ ref class ReviewController {
 			return nullptr;
 		}
 
-	List<Review^>^ getReviewByRestaurant(int IdRestaurant) {
-		try {
-			sqlConn->Open();
-			String^ sqlQuery = "SELECT * FROM Reviews WHERE IdRestaurant=@IdRestaurant";
-			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@IdRestaurant", IdRestaurant);
+		List<Review^>^ getReviewByRestaurant(int IdRestaurant) {
+			try {
+				sqlConn->Open();
+				String^ sqlQuery = "SELECT * FROM Reviews WHERE IdRestaurant=@IdRestaurant";
+				SqlCommand command(sqlQuery, sqlConn);
+				command.Parameters->AddWithValue("@IdRestaurant", IdRestaurant);
 
-			SqlDataReader^ reader = command.ExecuteReader();
+				SqlDataReader^ reader = command.ExecuteReader();
 
-			List<Review^>^ reviews = gcnew List<Review^>();
+				List<Review^>^ reviews = gcnew List<Review^>();
 
-			while (reader->Read()) {
-				Review^ review = gcnew Review();
+				while (reader->Read()) {
+					Review^ review = gcnew Review();
 
-				review->IdRestaurant = reader->GetInt32(0);
-				review->Comment = reader->GetString(1);
-				review->Rate = reader->GetInt32(2);
-				review->IdRestaurant = reader->GetInt32(3);
-				review->IdUser = reader->GetInt32(4);
+					review->IdRestaurant = reader->GetInt32(0);
+					review->Comment = reader->GetString(1);
+					review->Rate = reader->GetInt32(2);
+					review->IdRestaurant = reader->GetInt32(3);
+					review->IdUser = reader->GetInt32(4);
 
-				reviews->Add(review);
-			}
+					reviews->Add(review);
+				}
 
-			sqlConn->Close();
-
-			return reviews;
-		}
-		catch (Exception^ e) {
-			if (sqlConn->State.ToString()->Equals("Open")) {
 				sqlConn->Close();
-			}
 
-			return nullptr;
+				return reviews;
+			}
+			catch (Exception^ e) {
+				if (sqlConn->State.ToString()->Equals("Open")) {
+					sqlConn->Close();
+				}
+
+				return nullptr;
+			}
 		}
-}
+	}
+};
