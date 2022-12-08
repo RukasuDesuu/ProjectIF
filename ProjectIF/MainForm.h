@@ -71,6 +71,12 @@ namespace ProjectIF {
 	private: System::Windows::Forms::Label^ lblTerms;
 	private: System::Windows::Forms::TextBox^ tbID;
 	private: System::Windows::Forms::Label^ lblIdUser;
+	private: System::Windows::Forms::TabPage^ RestaurantPage;
+	private: System::Windows::Forms::Label^ lblRate;
+	private: System::Windows::Forms::Label^ lblReviews;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+	private: System::Windows::Forms::Label^ lblRestDescPage;
+	private: System::Windows::Forms::Label^ lblRestNamePage;
 
 
 
@@ -130,6 +136,12 @@ namespace ProjectIF {
 			this->lblRestDesc = (gcnew System::Windows::Forms::Label());
 			this->tbRestName = (gcnew System::Windows::Forms::TextBox());
 			this->lblRestName = (gcnew System::Windows::Forms::Label());
+			this->RestaurantPage = (gcnew System::Windows::Forms::TabPage());
+			this->lblRate = (gcnew System::Windows::Forms::Label());
+			this->lblReviews = (gcnew System::Windows::Forms::Label());
+			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->lblRestDescPage = (gcnew System::Windows::Forms::Label());
+			this->lblRestNamePage = (gcnew System::Windows::Forms::Label());
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
 			this->btnExplore = (gcnew System::Windows::Forms::Button());
 			this->btnRestaurantCad = (gcnew System::Windows::Forms::Button());
@@ -138,6 +150,7 @@ namespace ProjectIF {
 			this->tabPage2->SuspendLayout();
 			this->tabPage3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGatito))->BeginInit();
+			this->RestaurantPage->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tcMain
@@ -149,11 +162,11 @@ namespace ProjectIF {
 			this->tcMain->Controls->Add(this->tabPage1);
 			this->tcMain->Controls->Add(this->tabPage2);
 			this->tcMain->Controls->Add(this->tabPage3);
-			this->tcMain->Location = System::Drawing::Point(53, 1);
-			this->tcMain->Margin = System::Windows::Forms::Padding(4);
+			this->tcMain->Controls->Add(this->RestaurantPage);
+			this->tcMain->Location = System::Drawing::Point(40, 1);
 			this->tcMain->Name = L"tcMain";
 			this->tcMain->SelectedIndex = 0;
-			this->tcMain->Size = System::Drawing::Size(784, 585);
+			this->tcMain->Size = System::Drawing::Size(588, 475);
 			this->tcMain->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tcMain->TabIndex = 0;
 			// 
@@ -165,20 +178,18 @@ namespace ProjectIF {
 			this->tabPage1->Controls->Add(this->flowLayoutPanel1);
 			this->tabPage1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->tabPage1->Location = System::Drawing::Point(4, 28);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(4);
-			this->tabPage1->Size = System::Drawing::Size(776, 553);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(580, 446);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Explore";
 			// 
 			// flowLayoutPanel1
 			// 
-			this->flowLayoutPanel1->Location = System::Drawing::Point(8, 7);
-			this->flowLayoutPanel1->Margin = System::Windows::Forms::Padding(4);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(6, 6);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(705, 668);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(529, 543);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// tabPage2
@@ -192,20 +203,18 @@ namespace ProjectIF {
 			this->tabPage2->Controls->Add(this->tbName);
 			this->tabPage2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->tabPage2->Location = System::Drawing::Point(4, 28);
-			this->tabPage2->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage2->Location = System::Drawing::Point(4, 25);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(4);
-			this->tabPage2->Size = System::Drawing::Size(776, 553);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(580, 446);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Profile";
 			// 
 			// tbID
 			// 
-			this->tbID->Location = System::Drawing::Point(8, 226);
-			this->tbID->Margin = System::Windows::Forms::Padding(4);
+			this->tbID->Location = System::Drawing::Point(6, 184);
 			this->tbID->Name = L"tbID";
-			this->tbID->Size = System::Drawing::Size(132, 22);
+			this->tbID->Size = System::Drawing::Size(100, 20);
 			this->tbID->TabIndex = 4;
 			// 
 			// lblUsername
@@ -213,10 +222,9 @@ namespace ProjectIF {
 			this->lblUsername->AutoSize = true;
 			this->lblUsername->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblUsername->Location = System::Drawing::Point(8, 133);
-			this->lblUsername->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblUsername->Location = System::Drawing::Point(6, 108);
 			this->lblUsername->Name = L"lblUsername";
-			this->lblUsername->Size = System::Drawing::Size(91, 20);
+			this->lblUsername->Size = System::Drawing::Size(73, 16);
 			this->lblUsername->TabIndex = 3;
 			this->lblUsername->Text = L"Username:";
 			// 
@@ -225,29 +233,26 @@ namespace ProjectIF {
 			this->lblName->AutoSize = true;
 			this->lblName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblName->Location = System::Drawing::Point(9, 46);
-			this->lblName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblName->Location = System::Drawing::Point(7, 37);
 			this->lblName->Name = L"lblName";
-			this->lblName->Size = System::Drawing::Size(58, 20);
+			this->lblName->Size = System::Drawing::Size(47, 16);
 			this->lblName->TabIndex = 2;
 			this->lblName->Text = L"Name:";
 			// 
 			// tbUsername
 			// 
 			this->tbUsername->Enabled = false;
-			this->tbUsername->Location = System::Drawing::Point(8, 153);
-			this->tbUsername->Margin = System::Windows::Forms::Padding(4);
+			this->tbUsername->Location = System::Drawing::Point(6, 124);
 			this->tbUsername->Name = L"tbUsername";
-			this->tbUsername->Size = System::Drawing::Size(132, 22);
+			this->tbUsername->Size = System::Drawing::Size(100, 20);
 			this->tbUsername->TabIndex = 1;
 			// 
 			// tbName
 			// 
 			this->tbName->Enabled = false;
-			this->tbName->Location = System::Drawing::Point(8, 69);
-			this->tbName->Margin = System::Windows::Forms::Padding(4);
+			this->tbName->Location = System::Drawing::Point(6, 56);
 			this->tbName->Name = L"tbName";
-			this->tbName->Size = System::Drawing::Size(132, 22);
+			this->tbName->Size = System::Drawing::Size(100, 20);
 			this->tbName->TabIndex = 0;
 			// 
 			// tabPage3
@@ -267,21 +272,19 @@ namespace ProjectIF {
 			this->tabPage3->Controls->Add(this->lblRestName);
 			this->tabPage3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
-			this->tabPage3->Location = System::Drawing::Point(4, 28);
-			this->tabPage3->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage3->Location = System::Drawing::Point(4, 25);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Padding = System::Windows::Forms::Padding(4);
-			this->tabPage3->Size = System::Drawing::Size(776, 553);
+			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage3->Size = System::Drawing::Size(580, 446);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"RestaurantCadastro";
 			// 
 			// lblIdUser
 			// 
 			this->lblIdUser->AutoSize = true;
-			this->lblIdUser->Location = System::Drawing::Point(21, 363);
-			this->lblIdUser->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblIdUser->Location = System::Drawing::Point(16, 295);
 			this->lblIdUser->Name = L"lblIdUser";
-			this->lblIdUser->Size = System::Drawing::Size(0, 16);
+			this->lblIdUser->Size = System::Drawing::Size(0, 13);
 			this->lblIdUser->TabIndex = 18;
 			// 
 			// lblRestCadTitle
@@ -291,10 +294,9 @@ namespace ProjectIF {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->lblRestCadTitle->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(121)),
 				static_cast<System::Int32>(static_cast<System::Byte>(198)));
-			this->lblRestCadTitle->Location = System::Drawing::Point(113, 4);
-			this->lblRestCadTitle->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblRestCadTitle->Location = System::Drawing::Point(85, 3);
 			this->lblRestCadTitle->Name = L"lblRestCadTitle";
-			this->lblRestCadTitle->Size = System::Drawing::Size(531, 54);
+			this->lblRestCadTitle->Size = System::Drawing::Size(423, 42);
 			this->lblRestCadTitle->TabIndex = 0;
 			this->lblRestCadTitle->Text = L"Restaurant Cadastration";
 			this->lblRestCadTitle->TextAlign = System::Drawing::ContentAlignment::TopCenter;
@@ -303,10 +305,9 @@ namespace ProjectIF {
 			// 
 			this->picGatito->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picGatito.Image")));
 			this->picGatito->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"picGatito.InitialImage")));
-			this->picGatito->Location = System::Drawing::Point(415, 91);
-			this->picGatito->Margin = System::Windows::Forms::Padding(4);
+			this->picGatito->Location = System::Drawing::Point(311, 74);
 			this->picGatito->Name = L"picGatito";
-			this->picGatito->Size = System::Drawing::Size(335, 268);
+			this->picGatito->Size = System::Drawing::Size(251, 218);
 			this->picGatito->TabIndex = 17;
 			this->picGatito->TabStop = false;
 			// 
@@ -322,10 +323,9 @@ namespace ProjectIF {
 				static_cast<System::Byte>(0)));
 			this->btnSignUpConfirm->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->btnSignUpConfirm->Location = System::Drawing::Point(223, 463);
-			this->btnSignUpConfirm->Margin = System::Windows::Forms::Padding(4);
+			this->btnSignUpConfirm->Location = System::Drawing::Point(167, 376);
 			this->btnSignUpConfirm->Name = L"btnSignUpConfirm";
-			this->btnSignUpConfirm->Size = System::Drawing::Size(325, 39);
+			this->btnSignUpConfirm->Size = System::Drawing::Size(244, 32);
 			this->btnSignUpConfirm->TabIndex = 16;
 			this->btnSignUpConfirm->Text = L"CONFIRM";
 			this->btnSignUpConfirm->UseVisualStyleBackColor = false;
@@ -337,70 +337,127 @@ namespace ProjectIF {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(592, 529);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(444, 430);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(171, 17);
+			this->label1->Size = System::Drawing::Size(133, 13);
 			this->label1->TabIndex = 15;
 			this->label1->Text = L"Terms and Conditions.";
 			// 
 			// lblTerms
 			// 
 			this->lblTerms->AutoSize = true;
-			this->lblTerms->Location = System::Drawing::Point(300, 529);
-			this->lblTerms->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblTerms->Location = System::Drawing::Point(225, 430);
 			this->lblTerms->Name = L"lblTerms";
-			this->lblTerms->Size = System::Drawing::Size(276, 16);
+			this->lblTerms->Size = System::Drawing::Size(222, 13);
 			this->lblTerms->TabIndex = 14;
 			this->lblTerms->Text = L"By clicking on confirm you are agreeing to our";
 			// 
 			// chbIsDog
 			// 
 			this->chbIsDog->AutoSize = true;
-			this->chbIsDog->Location = System::Drawing::Point(21, 313);
-			this->chbIsDog->Margin = System::Windows::Forms::Padding(4);
+			this->chbIsDog->Location = System::Drawing::Point(16, 254);
 			this->chbIsDog->Name = L"chbIsDog";
-			this->chbIsDog->Size = System::Drawing::Size(112, 20);
+			this->chbIsDog->Size = System::Drawing::Size(92, 17);
 			this->chbIsDog->TabIndex = 5;
 			this->chbIsDog->Text = L"Accepts dog\?";
 			this->chbIsDog->UseVisualStyleBackColor = true;
 			// 
 			// tbRestDesc
 			// 
-			this->tbRestDesc->Location = System::Drawing::Point(21, 182);
-			this->tbRestDesc->Margin = System::Windows::Forms::Padding(4);
+			this->tbRestDesc->Location = System::Drawing::Point(16, 148);
 			this->tbRestDesc->Multiline = true;
 			this->tbRestDesc->Name = L"tbRestDesc";
-			this->tbRestDesc->Size = System::Drawing::Size(328, 98);
+			this->tbRestDesc->Size = System::Drawing::Size(247, 80);
 			this->tbRestDesc->TabIndex = 4;
 			// 
 			// lblRestDesc
 			// 
 			this->lblRestDesc->AutoSize = true;
-			this->lblRestDesc->Location = System::Drawing::Point(21, 161);
-			this->lblRestDesc->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblRestDesc->Location = System::Drawing::Point(16, 131);
 			this->lblRestDesc->Name = L"lblRestDesc";
-			this->lblRestDesc->Size = System::Drawing::Size(143, 16);
+			this->lblRestDesc->Size = System::Drawing::Size(115, 13);
 			this->lblRestDesc->TabIndex = 3;
 			this->lblRestDesc->Text = L"Restaurant Description";
 			// 
 			// tbRestName
 			// 
-			this->tbRestName->Location = System::Drawing::Point(17, 112);
-			this->tbRestName->Margin = System::Windows::Forms::Padding(4);
+			this->tbRestName->Location = System::Drawing::Point(13, 91);
 			this->tbRestName->Name = L"tbRestName";
-			this->tbRestName->Size = System::Drawing::Size(332, 22);
+			this->tbRestName->Size = System::Drawing::Size(250, 20);
 			this->tbRestName->TabIndex = 2;
 			// 
 			// lblRestName
 			// 
 			this->lblRestName->AutoSize = true;
-			this->lblRestName->Location = System::Drawing::Point(17, 91);
-			this->lblRestName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblRestName->Location = System::Drawing::Point(13, 74);
 			this->lblRestName->Name = L"lblRestName";
-			this->lblRestName->Size = System::Drawing::Size(112, 16);
+			this->lblRestName->Size = System::Drawing::Size(90, 13);
 			this->lblRestName->TabIndex = 1;
 			this->lblRestName->Text = L"Restaurant Name";
+			// 
+			// RestaurantPage
+			// 
+			this->RestaurantPage->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
+				static_cast<System::Int32>(static_cast<System::Byte>(90)));
+			this->RestaurantPage->Controls->Add(this->lblRate);
+			this->RestaurantPage->Controls->Add(this->lblReviews);
+			this->RestaurantPage->Controls->Add(this->flowLayoutPanel2);
+			this->RestaurantPage->Controls->Add(this->lblRestDescPage);
+			this->RestaurantPage->Controls->Add(this->lblRestNamePage);
+			this->RestaurantPage->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->RestaurantPage->Location = System::Drawing::Point(4, 25);
+			this->RestaurantPage->Name = L"RestaurantPage";
+			this->RestaurantPage->Padding = System::Windows::Forms::Padding(3);
+			this->RestaurantPage->Size = System::Drawing::Size(580, 446);
+			this->RestaurantPage->TabIndex = 3;
+			this->RestaurantPage->Text = L"RestaurantPage";
+			this->RestaurantPage->Click += gcnew System::EventHandler(this, &MainForm::RestaurantPage_Click);
+			// 
+			// lblRate
+			// 
+			this->lblRate->AutoSize = true;
+			this->lblRate->Location = System::Drawing::Point(10, 52);
+			this->lblRate->Name = L"lblRate";
+			this->lblRate->Size = System::Drawing::Size(33, 13);
+			this->lblRate->TabIndex = 4;
+			this->lblRate->Text = L"Rate:";
+			// 
+			// lblReviews
+			// 
+			this->lblReviews->AutoSize = true;
+			this->lblReviews->Location = System::Drawing::Point(4, 157);
+			this->lblReviews->Name = L"lblReviews";
+			this->lblReviews->Size = System::Drawing::Size(48, 13);
+			this->lblReviews->TabIndex = 3;
+			this->lblReviews->Text = L"Reviews";
+			// 
+			// flowLayoutPanel2
+			// 
+			this->flowLayoutPanel2->Location = System::Drawing::Point(4, 176);
+			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
+			this->flowLayoutPanel2->Size = System::Drawing::Size(570, 664);
+			this->flowLayoutPanel2->TabIndex = 2;
+			// 
+			// lblRestDescPage
+			// 
+			this->lblRestDescPage->AutoSize = true;
+			this->lblRestDescPage->Location = System::Drawing::Point(6, 94);
+			this->lblRestDescPage->Name = L"lblRestDescPage";
+			this->lblRestDescPage->Size = System::Drawing::Size(64, 13);
+			this->lblRestDescPage->TabIndex = 1;
+			this->lblRestDescPage->Text = L"lblRestDesc";
+			// 
+			// lblRestNamePage
+			// 
+			this->lblRestNamePage->AutoSize = true;
+			this->lblRestNamePage->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lblRestNamePage->Location = System::Drawing::Point(7, 7);
+			this->lblRestNamePage->Name = L"lblRestNamePage";
+			this->lblRestNamePage->Size = System::Drawing::Size(183, 33);
+			this->lblRestNamePage->TabIndex = 0;
+			this->lblRestNamePage->Text = L"lblRestName";
 			// 
 			// btnProfile
 			// 
@@ -409,10 +466,9 @@ namespace ProjectIF {
 			this->btnProfile->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnProfile->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnProfile.Image")));
-			this->btnProfile->Location = System::Drawing::Point(5, 50);
-			this->btnProfile->Margin = System::Windows::Forms::Padding(4);
+			this->btnProfile->Location = System::Drawing::Point(4, 41);
 			this->btnProfile->Name = L"btnProfile";
-			this->btnProfile->Size = System::Drawing::Size(43, 39);
+			this->btnProfile->Size = System::Drawing::Size(32, 32);
 			this->btnProfile->TabIndex = 1;
 			this->btnProfile->UseVisualStyleBackColor = false;
 			this->btnProfile->Click += gcnew System::EventHandler(this, &MainForm::btnProfile_Click);
@@ -424,10 +480,9 @@ namespace ProjectIF {
 			this->btnExplore->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnExplore->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnExplore->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnExplore.Image")));
-			this->btnExplore->Location = System::Drawing::Point(5, 6);
-			this->btnExplore->Margin = System::Windows::Forms::Padding(4);
+			this->btnExplore->Location = System::Drawing::Point(4, 5);
 			this->btnExplore->Name = L"btnExplore";
-			this->btnExplore->Size = System::Drawing::Size(43, 39);
+			this->btnExplore->Size = System::Drawing::Size(32, 32);
 			this->btnExplore->TabIndex = 2;
 			this->btnExplore->UseVisualStyleBackColor = false;
 			this->btnExplore->Click += gcnew System::EventHandler(this, &MainForm::btnExplore_Click);
@@ -440,28 +495,26 @@ namespace ProjectIF {
 			this->btnRestaurantCad->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnRestaurantCad->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnRestaurantCad->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRestaurantCad.Image")));
-			this->btnRestaurantCad->Location = System::Drawing::Point(5, 96);
-			this->btnRestaurantCad->Margin = System::Windows::Forms::Padding(4);
+			this->btnRestaurantCad->Location = System::Drawing::Point(4, 78);
 			this->btnRestaurantCad->Name = L"btnRestaurantCad";
-			this->btnRestaurantCad->Size = System::Drawing::Size(43, 39);
+			this->btnRestaurantCad->Size = System::Drawing::Size(32, 32);
 			this->btnRestaurantCad->TabIndex = 3;
 			this->btnRestaurantCad->UseVisualStyleBackColor = false;
 			this->btnRestaurantCad->Click += gcnew System::EventHandler(this, &MainForm::btnRestaurantCad_Click);
 			// 
 			// MainForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
 				static_cast<System::Int32>(static_cast<System::Byte>(54)));
-			this->ClientSize = System::Drawing::Size(840, 586);
+			this->ClientSize = System::Drawing::Size(630, 476);
 			this->Controls->Add(this->btnRestaurantCad);
 			this->Controls->Add(this->btnExplore);
 			this->Controls->Add(this->btnProfile);
 			this->Controls->Add(this->tcMain);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MainForm";
 			this->Text = L"MainForm";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
@@ -472,6 +525,8 @@ namespace ProjectIF {
 			this->tabPage3->ResumeLayout(false);
 			this->tabPage3->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picGatito))->EndInit();
+			this->RestaurantPage->ResumeLayout(false);
+			this->RestaurantPage->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -482,10 +537,21 @@ namespace ProjectIF {
 
 		RestaurantUC^ teste;
 		for each (Restaurant^ i in restaurantController->getAllRestaurants()) {
-			this->flowLayoutPanel1->Controls->Add((gcnew RestaurantUC(i)));
+			RestaurantUC^ restaurantuc = gcnew RestaurantUC(i);
+			restaurantuc -> changetab += gcnew System::EventHandler(this, &MainForm::changeTab);
+			this->flowLayoutPanel1->Controls->Add(restaurantuc);
+
 		}
 		
 	}
+
+	protected: System::Void changeTab(System::Object^ sender, System::EventArgs^ e){
+		
+		this->tcMain->SelectedIndex = 3;
+		this->lblRestNamePage->Text = dynamic_cast<Restaurant^>(sender)->name;
+		this->lblRestDescPage->Text = "Description: " + dynamic_cast<Restaurant^>(sender)->descricao;
+	}
+
 	private: System::Void btnProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->SelectedIndex = 1;
 		this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(139)), static_cast<System::Int32>(static_cast<System::Byte>(233)), static_cast<System::Int32>(static_cast<System::Byte>(253)));
@@ -548,6 +614,9 @@ namespace ProjectIF {
 		}
 
 	}
-
-	};
+	
+	
+	private: System::Void RestaurantPage_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
