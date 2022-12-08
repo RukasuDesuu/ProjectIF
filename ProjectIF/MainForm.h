@@ -3,8 +3,9 @@
 #include "RestaurantController.h"
 #include "Restaurant.h"
 #include "RestaurantUC.h"
-#include "ReviewController.h"
 #include "Review.h"
+#include "ReviewController.h"
+#include "ReviewUC.h"
 
 namespace ProjectIF {
 
@@ -22,6 +23,7 @@ namespace ProjectIF {
 	{
 		int^ id = nullptr;
 		int^ idRestaurant = nullptr;
+		User^ userl = nullptr;
 	public:
 		MainForm(User^ user)
 		{
@@ -29,6 +31,7 @@ namespace ProjectIF {
 			this->tbName->Text = user->name;
 			this->tbUsername->Text = user->username;
 			id = user->id;
+			userl = user;
 		}
 
 	protected:
@@ -77,7 +80,8 @@ namespace ProjectIF {
 	private: System::Windows::Forms::TabPage^ RestaurantPage;
 	private: System::Windows::Forms::Label^ lblRate;
 	private: System::Windows::Forms::Label^ lblReviews;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
+	private: System::Windows::Forms::FlowLayoutPanel^ layoutReviews;
+
 	private: System::Windows::Forms::Label^ lblRestDescPage;
 	private: System::Windows::Forms::Label^ lblRestNamePage;
 	private: System::Windows::Forms::Label^ lblReviewRate;
@@ -155,7 +159,7 @@ namespace ProjectIF {
 			this->tbReviewAdd = (gcnew System::Windows::Forms::TextBox());
 			this->lblRate = (gcnew System::Windows::Forms::Label());
 			this->lblReviews = (gcnew System::Windows::Forms::Label());
-			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->layoutReviews = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->lblRestDescPage = (gcnew System::Windows::Forms::Label());
 			this->lblRestNamePage = (gcnew System::Windows::Forms::Label());
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
@@ -209,7 +213,7 @@ namespace ProjectIF {
 			this->flowLayoutPanel1->AutoSize = true;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(6, 6);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(529, 363);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(568, 247);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// tabPage2
@@ -381,7 +385,6 @@ namespace ProjectIF {
 			this->tbRestDesc->Name = L"tbRestDesc";
 			this->tbRestDesc->Size = System::Drawing::Size(247, 80);
 			this->tbRestDesc->TabIndex = 4;
-			this->tbRestDesc->TextChanged += gcnew System::EventHandler(this, &MainForm::tbRestDesc_TextChanged);
 			// 
 			// lblRestDesc
 			// 
@@ -419,7 +422,7 @@ namespace ProjectIF {
 			this->RestaurantPage->Controls->Add(this->tbReviewAdd);
 			this->RestaurantPage->Controls->Add(this->lblRate);
 			this->RestaurantPage->Controls->Add(this->lblReviews);
-			this->RestaurantPage->Controls->Add(this->flowLayoutPanel2);
+			this->RestaurantPage->Controls->Add(this->layoutReviews);
 			this->RestaurantPage->Controls->Add(this->lblRestDescPage);
 			this->RestaurantPage->Controls->Add(this->lblRestNamePage);
 			this->RestaurantPage->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
@@ -496,20 +499,21 @@ namespace ProjectIF {
 			this->lblReviews->TabIndex = 3;
 			this->lblReviews->Text = L"Reviews";
 			// 
-			// flowLayoutPanel2
+			// layoutReviews
 			// 
-			this->flowLayoutPanel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->layoutReviews->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->flowLayoutPanel2->AutoSize = true;
-			this->flowLayoutPanel2->Location = System::Drawing::Point(4, 298);
-			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(570, 542);
-			this->flowLayoutPanel2->TabIndex = 2;
+			this->layoutReviews->AutoSize = true;
+			this->layoutReviews->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
+			this->layoutReviews->Location = System::Drawing::Point(4, 298);
+			this->layoutReviews->Name = L"layoutReviews";
+			this->layoutReviews->Size = System::Drawing::Size(570, 542);
+			this->layoutReviews->TabIndex = 2;
 			// 
 			// lblRestDescPage
 			// 
 			this->lblRestDescPage->AutoSize = true;
-			this->lblRestDescPage->Location = System::Drawing::Point(6, 94);
+			this->lblRestDescPage->Location = System::Drawing::Point(6, 98);
 			this->lblRestDescPage->Name = L"lblRestDescPage";
 			this->lblRestDescPage->Size = System::Drawing::Size(64, 13);
 			this->lblRestDescPage->TabIndex = 1;
@@ -601,6 +605,10 @@ namespace ProjectIF {
 		}
 #pragma endregion
 		//Cyan = rgb(139, 233, 253)
+
+	public:
+		
+		ReviewController^ reviewController = gcnew ReviewController();
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->ItemSize = System::Drawing::Size(0, 1);
 
@@ -619,6 +627,12 @@ namespace ProjectIF {
 		this->lblRestNamePage->Text = dynamic_cast<Restaurant^>(sender)->name;
 		this->lblRestDescPage->Text = "Description: " + dynamic_cast<Restaurant^>(sender)->descricao;
 		idRestaurant = dynamic_cast<Restaurant^>(sender)->idRestaurant;
+
+		for each (Review ^ v in reviewController->getReviewByRestaurant(idRestaurant)) {
+			ReviewUC^ reviewuc = gcnew ReviewUC();
+			this->layoutReviews->Controls->Add(reviewuc);
+		}
+
 	}
 
 	private: System::Void btnProfile_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -700,18 +714,17 @@ namespace ProjectIF {
 		double rateValue = trkRate->Value / 2.0;
 		this->lblRateValue->Text = rateValue.ToString();
 	}
-
+		   
 	private: System::Void btnReviewSend_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ comment = tbReviewAdd->Text;
 		int^ rating = trkRate->Value;
-	
 		Review^ review = gcnew Review();
-		ReviewController^ reviewController = gcnew ReviewController();
+		
 		try {
 			review->Comment = comment;
 			review->Rate = rating;
 			review->IdRestaurant = idRestaurant;
-			review->IdUser = id;
+			review->user = userl;
 
 			bool result = reviewController->createReview(review);
 

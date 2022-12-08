@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblComment.Text" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAYxJREFUWEftldsqRFEYgIcLOd0j9+IZ5PAASknChdyQuJHkBUg55EEQnkQOuXR6
+        AxSRHL5vNatc2DNmW1PUfPXV/tf86197r9MUatT4j7ThKp7gIz4Vn9ewHavKKN7hR4b3OIZVwcHf0IGO
+        cABbi/p8iP5mTvKXcNrjl6/YkMEyxpnosCEVrm/88nIcoLnrIUqEm8yiTnU5+tDcsxAlwp1u0ZYQlaYJ
+        zX0OUSIsZtHmEJWmEc19CVEiztGiTm85etHcixAlwg1lUTdYOfbR3I0QJcIj5dGy8JINGSyiOQ/YaUNK
+        JjBeRH6lU+16q8976G/vOIlVYQrjS3yng09jVRjCS/xu4K9e4zAmow43MQ5wigvYg5557cZ5jBeWbqN9
+        f80WWtDLaA7rMQsHnMV4ce3gr3Aq4+CDNvyQfowvMWJDHhrwBi3il1fKDNr3Fq1VMeNoAde11LRn4XIc
+        ozVyHctdtLObKy/OnDW8NyrmCu3sDs9LF1rDpawY/83s7E2XF9feGq8hqlHj71EofALY9nhEzOsSIwAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
 </root>

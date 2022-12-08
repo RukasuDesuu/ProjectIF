@@ -19,9 +19,7 @@ namespace ProjectIF {
 		ReviewUC(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			//this-> lblNameReview -> Text = review
 		}
 
 	protected:
@@ -35,10 +33,15 @@ namespace ProjectIF {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ lblNameReview;
+	private: System::Windows::Forms::Label^ lblRating;
 	protected:
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
+
+	protected:
+
+	private: System::Windows::Forms::Label^ lblComment;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 
 	private:
 		/// <summary>
@@ -53,53 +56,80 @@ namespace ProjectIF {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ReviewUC::typeid));
+			this->lblNameReview = (gcnew System::Windows::Forms::Label());
+			this->lblRating = (gcnew System::Windows::Forms::Label());
+			this->lblComment = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// label1
+			// lblNameReview
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(0, 4);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"label1";
+			this->lblNameReview->AutoSize = true;
+			this->lblNameReview->Location = System::Drawing::Point(46, 4);
+			this->lblNameReview->Name = L"lblNameReview";
+			this->lblNameReview->Size = System::Drawing::Size(35, 13);
+			this->lblNameReview->TabIndex = 0;
+			this->lblNameReview->Text = L"Name";
 			// 
-			// label2
+			// lblRating
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(205, 4);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
-			this->label2->TabIndex = 1;
-			this->label2->Text = L"label2";
+			this->lblRating->AutoSize = true;
+			this->lblRating->Location = System::Drawing::Point(266, 5);
+			this->lblRating->Name = L"lblRating";
+			this->lblRating->Size = System::Drawing::Size(30, 13);
+			this->lblRating->TabIndex = 1;
+			this->lblRating->Text = L"Rate";
 			// 
-			// label3
+			// lblComment
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(4, 36);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 13);
-			this->label3->TabIndex = 2;
-			this->label3->Text = L"label3";
+			this->lblComment->AutoSize = true;
+			this->lblComment->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->lblComment->Location = System::Drawing::Point(46, 30);
+			this->lblComment->MaximumSize = System::Drawing::Size(250, 0);
+			this->lblComment->MinimumSize = System::Drawing::Size(0, 20);
+			this->lblComment->Name = L"lblComment";
+			this->lblComment->Size = System::Drawing::Size(250, 117);
+			this->lblComment->TabIndex = 2;
+			this->lblComment->Text = resources->GetString(L"lblComment.Text");
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(139)), static_cast<System::Int32>(static_cast<System::Byte>(233)),
+				static_cast<System::Int32>(static_cast<System::Byte>(253)));
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(6, 5);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(32, 32);
+			this->pictureBox1->TabIndex = 3;
+			this->pictureBox1->TabStop = false;
 			// 
 			// ReviewUC
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(98)), static_cast<System::Int32>(static_cast<System::Byte>(114)),
-				static_cast<System::Int32>(static_cast<System::Byte>(164)));
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->AutoSize = true;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(42)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->lblComment);
+			this->Controls->Add(this->lblRating);
+			this->Controls->Add(this->lblNameReview);
+			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->Name = L"ReviewUC";
-			this->Size = System::Drawing::Size(283, 138);
+			this->Size = System::Drawing::Size(310, 162);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	
+	
+
+
+};
 }

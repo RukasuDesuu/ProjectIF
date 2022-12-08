@@ -21,7 +21,7 @@ using namespace System::Collections::Generic;
 			command.Parameters->AddWithValue("@Comment", review->Comment);
 			command.Parameters->AddWithValue("@Rate", review->Rate);
 			command.Parameters->AddWithValue("@IdRestaurant", review->IdRestaurant);
-			command.Parameters->AddWithValue("@IdUser", review->IdUser);
+			command.Parameters->AddWithValue("@IdUser", review->user->id);
 
 			command.ExecuteNonQuery();
 
@@ -42,7 +42,7 @@ using namespace System::Collections::Generic;
 	Review^ getReviewByUser(int IdUser) {
 		try {
 			sqlConn->Open();
-			String^ sqlQuery = "SELECT * FROM Reviews WHERE IdUser=@IdUser";
+			String^ sqlQuery = "select * from Reviews left join users on users.id = reviews.idUser WHERE IdUser=@IdUser";
 			SqlCommand command(sqlQuery, sqlConn);
 			command.Parameters->AddWithValue("@IdUser", IdUser);
 
@@ -55,7 +55,10 @@ using namespace System::Collections::Generic;
 				review->Comment = reader->GetString(1);
 				review->Rate = reader->GetInt32(2);
 				review->IdRestaurant = reader->GetInt32(3);
-				review->IdUser = reader->GetInt32(4);
+				review->user->id = reader->GetInt32(4);
+				review->user->name = reader->GetString(5);
+				review->user->username = reader->GetString(6);
+				review->user->password = "";
 
 			}
 
@@ -70,41 +73,45 @@ using namespace System::Collections::Generic;
 
 			return nullptr;
 		}
+	}
 
-		List<Review^>^ getReviewByRestaurant(int IdRestaurant) {
-			try {
-				sqlConn->Open();
-				String^ sqlQuery = "SELECT * FROM Reviews WHERE IdRestaurant=@IdRestaurant";
-				SqlCommand command(sqlQuery, sqlConn);
-				command.Parameters->AddWithValue("@IdRestaurant", IdRestaurant);
+	List<Review^>^ getReviewByRestaurant(int^ IdRestaurant) {
+		try {
+			sqlConn->Open();
+			String^ sqlQuery = "select * from Reviews left join users on users.id = reviews.idUser WHERE IdRestaurant=@IdRestaurant";
+			SqlCommand command(sqlQuery, sqlConn);
+			command.Parameters->AddWithValue("@IdRestaurant", IdRestaurant);
 
-				SqlDataReader^ reader = command.ExecuteReader();
+			SqlDataReader^ reader = command.ExecuteReader();
 
-				List<Review^>^ reviews = gcnew List<Review^>();
+			List<Review^>^ reviews = gcnew List<Review^>();
+				
+			while (reader->Read()) {
+				Review^ review = gcnew Review();
 
-				while (reader->Read()) {
-					Review^ review = gcnew Review();
+				review->IdReview = reader->GetInt32(0);
+				review->Comment = reader->GetString(1);
+				review->Rate = reader->GetInt32(2);
+				review->IdRestaurant = reader->GetInt32(3);
+				review->user->id = reader->GetInt32(4);
+				review->user->name = reader->GetString(6);
+				review->user->username = reader->GetString(7);
+				review->user->password = "";
 
-					review->IdRestaurant = reader->GetInt32(0);
-					review->Comment = reader->GetString(1);
-					review->Rate = reader->GetInt32(2);
-					review->IdRestaurant = reader->GetInt32(3);
-					review->IdUser = reader->GetInt32(4);
+				reviews->Add(review);
+			}
 
-					reviews->Add(review);
-				}
+			sqlConn->Close();
 
+			return reviews;
+		}
+		catch (Exception^ e) {
+			if (sqlConn->State.ToString()->Equals("Open")) {
 				sqlConn->Close();
-
-				return reviews;
 			}
-			catch (Exception^ e) {
-				if (sqlConn->State.ToString()->Equals("Open")) {
-					sqlConn->Close();
-				}
 
-				return nullptr;
-			}
+			return nullptr;
 		}
 	}
+	
 };
