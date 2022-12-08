@@ -16,7 +16,6 @@ public:
 			sqlConn->Open();
 			String^ sqlQuery = "SELECT * FROM Restaurants";
 			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@IdRestaurant", 5);
 
 			SqlDataReader^ reader = command.ExecuteReader();
 
