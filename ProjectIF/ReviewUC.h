@@ -1,4 +1,5 @@
 #pragma once
+#include "Review.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -16,10 +17,12 @@ namespace ProjectIF {
 	public ref class ReviewUC : public System::Windows::Forms::UserControl
 	{
 	public:
-		ReviewUC(void)
+		ReviewUC(Review^ review)
 		{
 			InitializeComponent();
-			//this-> lblNameReview -> Text = review
+			this->lblNameReview->Text = review->user->name;
+			this->lblRating->Text = review->Rate->ToString();
+			this->lblComment->Text = review->Comment;
 		}
 
 	protected:

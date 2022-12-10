@@ -117,4 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="RestaurantLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA/hJREFUWEftl8trVHcUx2eshbYKrRWKLny0KJWoGfKeSCStdCMRrI9EWwWfsRYX
+        Rs0kmSS+sJQGuzGiInVRdKGbqH+in8/NuXdmkjsx04Kb9sCX8/r+vufcO/fOJIX/ban19PRc7O3tHe/r
+        67uhr4/ra/By4zxuGqsdY/Ktq6trF6QRyNX29vZ1IXC+s7NzM/Wp7u7uHvADtYlyufwpfkwMDg5+Ys2e
+        HLme8SwYD62q2s6IcctNkRCuQvyOA/2KDQ8Pf6QQV3KMAd8QVxi6nt5lYWzNnhy5nvGsGmqpGdoTMa7R
+        EFkryQP4AxKtKYLoTvwRamOIfYyvkG/Ee4XnI65Eb0xunJkK3QlwgFztqrUYWzMaQ1xBB6TJdBk2/pJ8
+        lPpR4h3UKsGtxMdySsTtznpyPeNZNdSKi5l0BvmQ3AajeRNXpDlNvIkrOCcR8b34cXpr8Mntw1fob8cP
+        i4jTBeTIHY+zQ2qpSTxNrxizahZX+gbCLfAXeEJ+F78AroDX5JfD/xp1uU8CxgvRy7jAs9bVkqf2LfI3
+        zozxydZtbHmMxkjcIh/Cz/HT3DoftpnUl0qlL/CTCHTSPy6MrUUv4+rVCK1qfMQjziJvi/GFQkdHxzYK
+        F2hcAj799yFvwT8dGBjYgH8W/qlc/Bz87/GjIuI5Bm2Vs/RMaN1X2xnOUifGLxpFn+yLkK9COkk8S+yD
+        dIfej/rIZ+xTu6ZQ4FqcmWlyZta+2sR+0SXPS4PRPAj20HwB6cwKeJVTS8DZpj2htjOcFWNrVrfA8u3q
+        jL5vRK6t1NPUbnkBa2w/Guk/XqC/v/+rlheIvEpYXKwkQ+blCBabE2luL2gNRt235bCclhZAfDcuG67R
+        z64S/j4Rae4doHYcnSMRt/4RLLV0CP5rhwvSIrfYV7lhAfJkuN8T8E6o7Qzw7xYAZV6rc/CTBRhyHf+t
+        vaA1DLcftdUtwBdKb5QbzHoMWWMOP70DSR69bHj8jP9iTSNe3QIKgZ+4ytEUCB6KenaVDheRJguw5Gf4
+        5b92GPXVL+D3uN/hDJ7Vh/B7F4gw19R2hrOiVDOLNiUx9G2Qjyrq5x3153hfw2QR8ocize2p5d8HPJS7
+        yMvAn/TNlP2Jfv8CIfgI7AePI9abP6L/O3RfzSL87C0Q9lj2Jv4s+FlNzpTAb+A2tZc8lP7dmL8AhN3x
+        MzuPUB+5y8zrzY0ViyN5H4GD/oS/KQ/02sCDFRcwhpQ+zekDmbyaEa/4DKDxjNrpZoCzgG/+ERinQ/At
+        LwDy/+oNo//3sgXY2t9o/6yaBg69V+dT1OfGPpSzIs2jl/Wb4A/gn2W1f1JIpnB+mXwwxMxFY6MShRsf
+        Es6M8f9pKxTeAQSnVqGwPjbyAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lblRestDesc.Text" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</value>
+  </data>
 </root>

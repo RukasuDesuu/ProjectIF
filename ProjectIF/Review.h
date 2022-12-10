@@ -10,3 +10,4 @@ public:
 	int^ IdRestaurant;
 	User^ user;
 };
+#pragma endregion

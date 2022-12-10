@@ -56,6 +56,7 @@ namespace ProjectIF {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(RestaurantUC::typeid));
 			this->lblRestName = (gcnew System::Windows::Forms::Label());
 			this->RestaurantLogo = (gcnew System::Windows::Forms::PictureBox());
 			this->lblRestDesc = (gcnew System::Windows::Forms::Label());
@@ -74,6 +75,7 @@ namespace ProjectIF {
 			// 
 			// RestaurantLogo
 			// 
+			this->RestaurantLogo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"RestaurantLogo.Image")));
 			this->RestaurantLogo->Location = System::Drawing::Point(7, 20);
 			this->RestaurantLogo->MaximumSize = System::Drawing::Size(64, 64);
 			this->RestaurantLogo->MinimumSize = System::Drawing::Size(64, 64);
@@ -87,10 +89,11 @@ namespace ProjectIF {
 			// 
 			this->lblRestDesc->AutoSize = true;
 			this->lblRestDesc->Location = System::Drawing::Point(78, 30);
+			this->lblRestDesc->MaximumSize = System::Drawing::Size(400, 0);
 			this->lblRestDesc->Name = L"lblRestDesc";
-			this->lblRestDesc->Size = System::Drawing::Size(115, 13);
+			this->lblRestDesc->Size = System::Drawing::Size(396, 143);
 			this->lblRestDesc->TabIndex = 2;
-			this->lblRestDesc->Text = L"Restaurant Description";
+			this->lblRestDesc->Text = resources->GetString(L"lblRestDesc.Text");
 			// 
 			// btnRestAccess
 			// 
@@ -119,7 +122,7 @@ namespace ProjectIF {
 			this->Controls->Add(this->RestaurantLogo);
 			this->Controls->Add(this->lblRestName);
 			this->Name = L"RestaurantUC";
-			this->Size = System::Drawing::Size(534, 99);
+			this->Size = System::Drawing::Size(534, 173);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->RestaurantLogo))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

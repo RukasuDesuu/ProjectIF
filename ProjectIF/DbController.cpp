@@ -21,4 +21,5 @@ public:
             }
             return connection;
         }
+#pragma endregion
 };

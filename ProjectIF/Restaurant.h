@@ -10,3 +10,4 @@ public:
 	bool^ isDog;
 	int^ idUser;
 };
+#pragma endregion

@@ -1,3 +1,4 @@
+#pragma once
 #include "DbController.cpp"
 #include "Review.h"
 
@@ -118,5 +119,5 @@ using namespace System::Collections::Generic;
 			return nullptr;
 		}
 	}
-	
+#pragma endregion
 };
