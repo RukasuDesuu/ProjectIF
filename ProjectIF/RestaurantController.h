@@ -125,9 +125,10 @@ public:
 
 			command.ExecuteNonQuery();
 
-			return true;
-
 			sqlConn->Close();
+			
+			return true;
+			
 		}
 		catch (Exception^ e) {
 			if (sqlConn->State.ToString()->Equals("Open")) {

@@ -58,9 +58,11 @@ ref class UserController {
 
 				command.ExecuteNonQuery();
 
+				sqlConn->Close();
+
 				return true;
 
-				sqlConn->Close();
+				
 			}
 			catch (Exception^ e) {
 				if (sqlConn->State.ToString()->Equals("Open")) {

@@ -452,7 +452,7 @@ namespace ProjectIF {
 			this->flowLayoutPanel2->Location = System::Drawing::Point(7, 15);
 			this->flowLayoutPanel2->MinimumSize = System::Drawing::Size(10, 10);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(570, 644);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(570, 1800);
 			this->flowLayoutPanel2->TabIndex = 3;
 			// 
 			// lblRestNamePage
@@ -586,6 +586,7 @@ namespace ProjectIF {
 			this->layoutReviews->AutoSize = true;
 			this->layoutReviews->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->layoutReviews->Location = System::Drawing::Point(3, 226);
+			this->layoutReviews->MaximumSize = System::Drawing::Size(800, 0);
 			this->layoutReviews->Name = L"layoutReviews";
 			this->layoutReviews->Size = System::Drawing::Size(564, 0);
 			this->layoutReviews->TabIndex = 2;
@@ -693,13 +694,21 @@ namespace ProjectIF {
 		this->lblRestNamePage->Text = dynamic_cast<Restaurant^>(sender)->name;
 		this->lblRestDescPage->Text = "Description: " + dynamic_cast<Restaurant^>(sender)->descricao;
 		idRestaurant = dynamic_cast<Restaurant^>(sender)->idRestaurant;
+		getReviews();
 
+	}
+	private:
+		int^ rate, soma;
+		
+	void getReviews() {
+		this->layoutReviews->Controls->Clear();
 		for each (Review ^ v in reviewController->getReviewByRestaurant(idRestaurant)) {
 			ReviewUC^ reviewuc = gcnew ReviewUC(v);
 			this->layoutReviews->Controls->Add(reviewuc);
-		}
 
+		}
 	}
+
 
 	private: System::Void btnProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->SelectedIndex = 1;
@@ -804,7 +813,7 @@ namespace ProjectIF {
 			MessageBox::Show("Review!", "Review Sent Succesfully", MessageBoxButtons::OK);
 
 			this->tbReviewAdd->Text = "";
-		
+			getReviews();
 
 		}
 		catch (Exception^ e) {

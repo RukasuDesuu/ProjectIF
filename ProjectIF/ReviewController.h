@@ -24,11 +24,12 @@ using namespace System::Collections::Generic;
 			command.Parameters->AddWithValue("@IdRestaurant", review->IdRestaurant);
 			command.Parameters->AddWithValue("@IdUser", review->user->id);
 
-			command.ExecuteNonQuery();
+			command.ExecuteNonQuery();		
+
+			sqlConn->Close();
 
 			return true;
 
-			sqlConn->Close();
 		}
 		catch (Exception^ e) {
 			if (sqlConn->State.ToString()->Equals("Open")) {
