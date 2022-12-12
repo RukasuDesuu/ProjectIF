@@ -26,6 +26,7 @@ namespace ProjectIF {
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
+	private: System::Windows::Forms::Button^ button1;
 
 		   User^ userl = nullptr;
 	public:
@@ -172,6 +173,7 @@ namespace ProjectIF {
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
 			this->btnExplore = (gcnew System::Windows::Forms::Button());
 			this->btnRestaurantCad = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tcMain->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -206,6 +208,7 @@ namespace ProjectIF {
 			this->tabPage1->AutoScroll = true;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
 				static_cast<System::Int32>(static_cast<System::Byte>(90)));
+			this->tabPage1->Controls->Add(this->button1);
 			this->tabPage1->Controls->Add(this->flowLayoutPanel1);
 			this->tabPage1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
@@ -221,7 +224,7 @@ namespace ProjectIF {
 			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->flowLayoutPanel1->AutoSize = true;
-			this->flowLayoutPanel1->Location = System::Drawing::Point(6, 6);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(6, 40);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(568, 247);
 			this->flowLayoutPanel1->TabIndex = 0;
@@ -634,6 +637,21 @@ namespace ProjectIF {
 			this->btnRestaurantCad->UseVisualStyleBackColor = false;
 			this->btnRestaurantCad->Click += gcnew System::EventHandler(this, &MainForm::btnRestaurantCad_Click);
 			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(147)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
+			this->button1->Location = System::Drawing::Point(6, 3);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(32, 32);
+			this->button1->TabIndex = 4;
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -679,16 +697,23 @@ namespace ProjectIF {
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->tcMain->ItemSize = System::Drawing::Size(0, 1);
 
-		RestaurantUC^ teste;
-		for each (Restaurant^ i in restaurantController->getAllRestaurants()) {
+		getRestaurants();
+		
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->flowLayoutPanel1->Controls->Clear();
+		getRestaurants();
+
+	}
+
+	void getRestaurants() {
+		for each (Restaurant ^ i in restaurantController->getAllRestaurants()) {
 			RestaurantUC^ restaurantuc = gcnew RestaurantUC(i);
-			restaurantuc -> changetab += gcnew System::EventHandler(this, &MainForm::changeTab);
+			restaurantuc->changetab += gcnew System::EventHandler(this, &MainForm::changeTab);
 			this->flowLayoutPanel1->Controls->Add(restaurantuc);
 
 		}
-		
 	}
-
 	protected: System::Void changeTab(System::Object^ sender, System::EventArgs^ e){
 		this->tcMain->SelectedIndex = 3;
 		this->lblRestNamePage->Text = dynamic_cast<Restaurant^>(sender)->name;
@@ -826,6 +851,7 @@ namespace ProjectIF {
 
 
 	}
+
 
 
 
