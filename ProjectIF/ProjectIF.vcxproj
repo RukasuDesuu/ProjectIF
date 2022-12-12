@@ -124,6 +124,7 @@
     <ClCompile Include="DbController.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="ReviewUC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -134,6 +135,14 @@
     </ClInclude>
     <ClInclude Include="Restaurant.h" />
     <ClInclude Include="RestaurantController.h" />
+    <ClInclude Include="RestaurantUC.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="Review.h" />
+    <ClInclude Include="ReviewController.h" />
+    <ClInclude Include="ReviewUC.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="User.h" />
     <ClInclude Include="UserController.h" />
   </ItemGroup>
@@ -146,11 +155,12 @@
       <DependentUpon>MainForm.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RestaurantUserControl\RestaurantUserControl.vcxproj">
-      <Project>{4bfd9571-a67b-4d49-ba27-f8938f5260d1}</Project>
-    </ProjectReference>
+    <EmbeddedResource Include="RestaurantUC.resx">
+      <DependentUpon>RestaurantUC.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReviewUC.resx">
+      <DependentUpon>ReviewUC.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

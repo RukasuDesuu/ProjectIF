@@ -1,5 +1,5 @@
 #pragma once
-#include "..\ProjectIF\Restaurant.h"
+
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -9,7 +9,7 @@ using namespace System::Data;
 using namespace System::Drawing;
 
 
-namespace RestaurantUserControl {
+namespace ProjectIF {
 
 	/// <summary>
 	/// Summary for MyUserControl
@@ -49,7 +49,7 @@ namespace RestaurantUserControl {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

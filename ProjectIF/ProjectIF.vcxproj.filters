@@ -22,6 +22,9 @@
     <Filter Include="Header Files\Models">
       <UniqueIdentifier>{96d8fe8e-6034-4c2e-b89e-e43929dbb0f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{2066eb58-d29c-4ef7-9a35-7ea61292ebda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainForm.cpp">
@@ -52,6 +55,15 @@
     </ClInclude>
     <ClInclude Include="RestaurantController.h">
       <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="RestaurantUC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReviewController.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Review.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,7 +16,6 @@ public:
 			sqlConn->Open();
 			String^ sqlQuery = "SELECT * FROM Restaurants";
 			SqlCommand command(sqlQuery, sqlConn);
-			command.Parameters->AddWithValue("@IdRestaurant", 5);
 
 			SqlDataReader^ reader = command.ExecuteReader();
 
@@ -43,6 +42,39 @@ public:
 			}
 
 			return nullptr;
+		}
+	}
+
+	Restaurant^ getRestaurantByUser(int^ idUser) {
+		try {
+			sqlConn->Open();
+
+			String^ sqlQuery = "SELECT * FROM Restaurants WHERE IdUser=@idUser;";
+			SqlCommand command(sqlQuery, sqlConn);
+
+			command.Parameters->AddWithValue("@IdUser", idUser);
+
+			SqlDataReader^ reader = command.ExecuteReader();
+			if (reader->Read()) {
+				Restaurant^ restaurant = gcnew Restaurant();
+
+				restaurant->idRestaurant = reader->GetInt32(0);
+				restaurant->name = reader->GetString(1);
+				restaurant->descricao = reader->GetString(2);
+				restaurant->isDog = reader->GetBoolean(3);
+
+				sqlConn->Close();
+				return restaurant;
+			}
+			else {
+				sqlConn->Close();
+				return nullptr;
+			}
+		}
+		catch (Exception^ e) {
+			if (sqlConn->State.ToString()->Equals("Open")) {
+				sqlConn->Close();
+			}
 		}
 	}
 
@@ -93,9 +125,10 @@ public:
 
 			command.ExecuteNonQuery();
 
-			return true;
-
 			sqlConn->Close();
+			
+			return true;
+			
 		}
 		catch (Exception^ e) {
 			if (sqlConn->State.ToString()->Equals("Open")) {
