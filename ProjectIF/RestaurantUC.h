@@ -23,6 +23,12 @@ namespace ProjectIF {
 			this->lblRestName->Text = restaurant->name;
 			this->lblRestDesc->Text = restaurant->descricao;
 			restaurante = restaurant;
+			if (restaurant->isDog) {
+				this->lblDog->Text = "Accepts Dog";
+			}
+			else{
+				this->lblDog->Text = "No dogs";
+			}
 		}
 
 	protected:
@@ -42,6 +48,7 @@ namespace ProjectIF {
 	private: System::Windows::Forms::PictureBox^ RestaurantLogo;
 	private: System::Windows::Forms::Label^ lblRestDesc;
 	private: System::Windows::Forms::Button^ btnRestAccess;
+	private: System::Windows::Forms::Label^ lblDog;
 
 	private:
 		/// <summary>
@@ -61,6 +68,7 @@ namespace ProjectIF {
 			this->RestaurantLogo = (gcnew System::Windows::Forms::PictureBox());
 			this->lblRestDesc = (gcnew System::Windows::Forms::Label());
 			this->btnRestAccess = (gcnew System::Windows::Forms::Button());
+			this->lblDog = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->RestaurantLogo))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -110,6 +118,15 @@ namespace ProjectIF {
 			this->btnRestAccess->UseVisualStyleBackColor = false;
 			this->btnRestAccess->Click += gcnew System::EventHandler(this, &RestaurantUC::btnRestAccess_Click);
 			// 
+			// lblDog
+			// 
+			this->lblDog->AutoSize = true;
+			this->lblDog->Location = System::Drawing::Point(4, 87);
+			this->lblDog->Name = L"lblDog";
+			this->lblDog->Size = System::Drawing::Size(50, 13);
+			this->lblDog->TabIndex = 4;
+			this->lblDog->Text = L"Cachorro";
+			// 
 			// RestaurantUC
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -117,6 +134,7 @@ namespace ProjectIF {
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(98)), static_cast<System::Int32>(static_cast<System::Byte>(114)),
 				static_cast<System::Int32>(static_cast<System::Byte>(164)));
+			this->Controls->Add(this->lblDog);
 			this->Controls->Add(this->btnRestAccess);
 			this->Controls->Add(this->lblRestDesc);
 			this->Controls->Add(this->RestaurantLogo);
