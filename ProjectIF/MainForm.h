@@ -138,6 +138,7 @@ namespace ProjectIF {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->tcMain = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->lblUsername = (gcnew System::Windows::Forms::Label());
@@ -173,7 +174,6 @@ namespace ProjectIF {
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
 			this->btnExplore = (gcnew System::Windows::Forms::Button());
 			this->btnRestaurantCad = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tcMain->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -218,6 +218,22 @@ namespace ProjectIF {
 			this->tabPage1->Size = System::Drawing::Size(580, 446);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Explore";
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(147)),
+				static_cast<System::Int32>(static_cast<System::Byte>(249)));
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
+			this->button1->Location = System::Drawing::Point(6, 3);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(32, 32);
+			this->button1->TabIndex = 4;
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -599,6 +615,7 @@ namespace ProjectIF {
 			this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnProfile->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnProfile->FlatAppearance->BorderSize = 0;
 			this->btnProfile->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnProfile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnProfile.Image")));
 			this->btnProfile->Location = System::Drawing::Point(4, 41);
@@ -613,6 +630,7 @@ namespace ProjectIF {
 			this->btnExplore->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(139)), static_cast<System::Int32>(static_cast<System::Byte>(233)),
 				static_cast<System::Int32>(static_cast<System::Byte>(253)));
 			this->btnExplore->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnExplore->FlatAppearance->BorderSize = 0;
 			this->btnExplore->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnExplore->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnExplore.Image")));
 			this->btnExplore->Location = System::Drawing::Point(4, 5);
@@ -628,6 +646,7 @@ namespace ProjectIF {
 				static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnRestaurantCad->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRestaurantCad.BackgroundImage")));
 			this->btnRestaurantCad->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnRestaurantCad->FlatAppearance->BorderSize = 0;
 			this->btnRestaurantCad->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnRestaurantCad->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnRestaurantCad.Image")));
 			this->btnRestaurantCad->Location = System::Drawing::Point(4, 78);
@@ -636,21 +655,6 @@ namespace ProjectIF {
 			this->btnRestaurantCad->TabIndex = 3;
 			this->btnRestaurantCad->UseVisualStyleBackColor = false;
 			this->btnRestaurantCad->Click += gcnew System::EventHandler(this, &MainForm::btnRestaurantCad_Click);
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(147)),
-				static_cast<System::Int32>(static_cast<System::Byte>(249)));
-			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
-			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(6, 3);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(32, 32);
-			this->button1->TabIndex = 4;
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// MainForm
 			// 
