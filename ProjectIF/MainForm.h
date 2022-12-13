@@ -727,7 +727,7 @@ namespace ProjectIF {
 
 	}
 	private:
-		int^ rate, soma;
+		float^ soma;
 		
 	void getReviews() {
 		this->layoutReviews->Controls->Clear();
