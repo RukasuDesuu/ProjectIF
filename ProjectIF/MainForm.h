@@ -26,7 +26,8 @@ namespace ProjectIF {
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ btnReload;
+
 
 		   User^ userl = nullptr;
 	public:
@@ -138,7 +139,7 @@ namespace ProjectIF {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 			this->tcMain = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnReload = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->lblUsername = (gcnew System::Windows::Forms::Label());
@@ -208,7 +209,7 @@ namespace ProjectIF {
 			this->tabPage1->AutoScroll = true;
 			this->tabPage1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(68)), static_cast<System::Int32>(static_cast<System::Byte>(71)),
 				static_cast<System::Int32>(static_cast<System::Byte>(90)));
-			this->tabPage1->Controls->Add(this->button1);
+			this->tabPage1->Controls->Add(this->btnReload);
 			this->tabPage1->Controls->Add(this->flowLayoutPanel1);
 			this->tabPage1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
@@ -219,21 +220,21 @@ namespace ProjectIF {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Explore";
 			// 
-			// button1
+			// btnReload
 			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(147)),
+			this->btnReload->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(147)),
 				static_cast<System::Int32>(static_cast<System::Byte>(249)));
-			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
-			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->FlatAppearance->BorderSize = 0;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
-			this->button1->Location = System::Drawing::Point(6, 3);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(32, 32);
-			this->button1->TabIndex = 4;
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
+			this->btnReload->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnReload.BackgroundImage")));
+			this->btnReload->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnReload->FlatAppearance->BorderSize = 0;
+			this->btnReload->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnReload->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnReload.Image")));
+			this->btnReload->Location = System::Drawing::Point(6, 3);
+			this->btnReload->Name = L"btnReload";
+			this->btnReload->Size = System::Drawing::Size(32, 32);
+			this->btnReload->TabIndex = 4;
+			this->btnReload->UseVisualStyleBackColor = false;
+			this->btnReload->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -724,18 +725,26 @@ namespace ProjectIF {
 		this->lblRestDescPage->Text = "Description: " + dynamic_cast<Restaurant^>(sender)->descricao;
 		idRestaurant = dynamic_cast<Restaurant^>(sender)->idRestaurant;
 		getReviews();
-
+		
 	}
 	private:
-		float^ soma;
-		
+		int soma;
+		float n = 0.00;
 	void getReviews() {
 		this->layoutReviews->Controls->Clear();
 		for each (Review ^ v in reviewController->getReviewByRestaurant(idRestaurant)) {
 			ReviewUC^ reviewuc = gcnew ReviewUC(v);
 			this->layoutReviews->Controls->Add(reviewuc);
-
+			soma += *v->Rate;
+			n++;
 		}
+		if (n == 0.0) {
+			this->lblRate->Text = "Rate: No Rates yet";
+		}else{
+			this->lblRate->Text = "Rate: " + (soma / n).ToString("#.##");
+		}
+		n = 0;
+		soma = 0;
 	}
 
 
@@ -774,13 +783,9 @@ namespace ProjectIF {
 	
 	private: System::Void btnSignUpConfirm_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		//User^ user = gcnew User();
-
 		String^ restName = this->tbRestName->Text;
 		String^ restDesc = this->tbRestDesc->Text;
 		bool^ isDog = this->chbIsDog->Checked;
-		//int^ id = user->id;
-
 
 		try {
 			restaurant->name = restName;
@@ -811,8 +816,6 @@ namespace ProjectIF {
 		}
 
 	}
-	
-	
 	
 
 
@@ -850,13 +853,8 @@ namespace ProjectIF {
 				"Database Connection Error", MessageBoxButtons::OK);
 		}
 		
-		
-
-
 
 	}
-
-
 
 
 };

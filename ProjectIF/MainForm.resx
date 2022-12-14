@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReload.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAA23tJREFUeF7tvQe4dUlV5v/dr79OxCYHQWjopnNG6UwHctY/rYIJx1FQkdFxdMaA
@@ -1061,10 +1061,10 @@
         gg==
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAWVJREFUWEftlkEuBEEUQFtIJGyJC1i4ACvjKMSCBZfgAvYS92BnZ1bOQOYEY8kC
+        EAAACxABrSO9dQAAAWVJREFUWEftlkEuBEEUQFtIJGyJC1i4ACvjKMSCBZfgAvYS92BnZ1bOQOYEY8kC
         701aMumUqerqarPQL3lhqqt+V1dX/f7VwH9hp/5bhHU8wku8qr2o27zWxLYP3J/96sAu3uIbfuILPuG4
         /t82r9nHvj9s4BeOZr8yWMNrfMdnPMUtbGKb1+xjX1dmFTtNYBMfcIrHuIIx7GNfx9zjNmZNwCf35hPc
         s6EljnHsI2ZNwGX3Kdrc/BDP57xBb956Am4i36NL2YY7fP3FA0zGnexmSnnnxfHcepzc0UvBhOKZDh21
