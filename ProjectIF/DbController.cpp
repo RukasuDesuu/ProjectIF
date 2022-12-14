@@ -4,7 +4,6 @@ using namespace System::Data::SqlClient;
 
 ref class DbController {
 
-public:
     private: 
         static SqlConnection^ connection;
 

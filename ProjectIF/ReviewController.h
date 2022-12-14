@@ -108,9 +108,13 @@ using namespace System::Collections::Generic;
 				reviews->Add(review);
 			}
 
-			sqlConn->Close();
 
 			return reviews;
+
+
+			sqlConn->Close();
+
+			
 		}
 		catch (Exception^ e) {
 			if (sqlConn->State.ToString()->Equals("Open")) {
